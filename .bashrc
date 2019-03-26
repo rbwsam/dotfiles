@@ -11,6 +11,6 @@ export GOPATH=$HOME/go
 export GOROOT=$HOME/.go1.11.6
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
-# Necessary on Arch Linux for tab ccomplete of commands starting with sudo
+# Necessary on Arch Linux for tab complete of commands starting with sudo
 complete -cf sudo
 
