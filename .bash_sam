@@ -12,7 +12,7 @@ alias kc.cp="kubectl -n crossplane-system"
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
-alias rock="GO_NOCOV=true make go.fmt.simplify go.vet go.lint go.test.unit"
+alias rock="GO_NOCOV=true make -j 1 go.fmt.simplify go.vet go.lint go.test.unit"
 alias roll="make go.test.unit && go tool cover -html=_output/tests/linux_amd64/coverage.txt"
 
 # Tell make to run infinite jobs at once
