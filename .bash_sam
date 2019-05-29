@@ -1,3 +1,5 @@
+# vi:syntax=bash
+
 alias kc="kubectl"
 alias kc.all="kubectl get all --all-namespaces"
 alias kc.all.watch="watch -n 3 kubectl get all --all-namespaces"
@@ -12,6 +14,9 @@ alias pbpaste='xsel --clipboard --output'
 
 alias rock="GO_NOCOV=true make go.fmt.simplify go.vet go.lint go.test.unit"
 alias roll="make go.test.unit && go tool cover -html=_output/tests/linux_amd64/coverage.txt"
+
+# Tell make to run infinite jobs at once
+export GNUMAKEFLAGS=-j
 
 export VISUAL="subl"
 export EDITOR="vim"
