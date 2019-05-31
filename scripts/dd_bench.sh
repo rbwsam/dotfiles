@@ -3,6 +3,11 @@
 COUNT=2048
 PREFIX="> "
 
+if [ "$EUID" -ne 0 ]
+  then echo "Must be run as root (or with sudo)"
+  exit
+fi
+
 echo "$PREFIX Writing..."
 dd if=/dev/zero of=tempfile bs=1M count=$COUNT conv=fdatasync,notrunc
 
