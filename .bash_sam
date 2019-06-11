@@ -9,6 +9,8 @@ alias kc.up.log="kubectl -n upbound-system log -f"
 
 alias kc.cp="kubectl -n crossplane-system"
 
+alias up="sudo apt update && sudo apt upgrade"
+
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
