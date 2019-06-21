@@ -1,0 +1,18 @@
+[core]
+	editor = vim
+	excludesfile = ~/.gitignoreglobal
+[color]
+	ui = true
+[user]
+	email = REPLACE_ME
+	name = Sam Leavens
+[alias]
+	lg = log --decorate --date=local
+	st = status
+	c = commit
+[url "https://github.com/"]
+	insteadOf = git://github.com/
+[branch]
+	autoSetupMerge = always
+[push]
+	default = current
