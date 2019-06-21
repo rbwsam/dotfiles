@@ -1,33 +1,10 @@
-# vi:syntax=bash
-
-alias kc="kubectl"
-alias kc.all="kubectl get all --all-namespaces"
-alias kc.all.watch="watch -n 3 kubectl get all --all-namespaces"
-
-alias kc.up="kubectl -n upbound-system"
-alias kc.up.log="kubectl -n upbound-system log -f"
-
-alias kc.cp="kubectl -n crossplane-system"
-
 alias up="sudo apt update && sudo apt upgrade"
 
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
-alias rock="GO_NOCOV=true make -j 1 go.fmt.simplify go.vet go.lint go.test.unit"
-alias roll="make go.test.unit && go tool cover -html=_output/tests/linux_amd64/coverage.txt"
-
-# Tell make to run infinite jobs at once
-export GNUMAKEFLAGS=-j
-
 export VISUAL="subl"
 export EDITOR="vim"
 
-export GOPATH=$HOME/go
-export GOROOT=$HOME/.go1.12.5
-
-export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:$PATH
-
 # Custom bash prompt via kirsle.net/wizards/ps1.html
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
-
