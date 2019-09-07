@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 sudo apt remove --purge gnome-shell-extension-ubuntu-dock gnome-shell-extension-desktop-icons
 
 dconf write /org/gnome/shell/window-switcher/current-workspace-only false
