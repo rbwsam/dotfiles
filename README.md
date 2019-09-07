@@ -2,7 +2,7 @@
 
 I hate reconfiguring apps.
 
-# For a new Ubuntu install
+## For a new Ubuntu install
 
 ```bash
 # Set up
@@ -16,6 +16,14 @@ sudo ./scripts/swappiness.sh
 ./scripts/ubuntu.sh
 ```
 
+## Create an SSH key
+
+```
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub | pbcopy
+```
+
+Go to GitHub and paste the new key: [https://github.com/settings/keys]()
 
 ## Notes
 
