@@ -10,10 +10,15 @@ sudo apt update && sudo apt install -y git
 mkir -p ~/code/rbwsam && cd ~/code/rbwsam
 git clone https://github.com/rbwsam/dotfiles.git
 
-# Do the work
+# Install packages
 ./scripts/packages.sh
+
+# Configure system
 sudo ./scripts/swappiness.sh
 ./scripts/ubuntu.sh
+
+# Configure bash
+echo -e "\nsource ~/code/rbwsam/dotfiles/.bash_conf" >> ~/.bashrc
 ```
 
 ## Create an SSH key
