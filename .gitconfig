@@ -10,8 +10,8 @@
 	lg = log --decorate --date=local
 	st = status
 	c = commit
-[url "https://github.com/"]
-	insteadOf = git://github.com/
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 [branch]
 	autoSetupMerge = always
 [push]
