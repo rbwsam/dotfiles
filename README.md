@@ -18,7 +18,7 @@ sudo ./scripts/swappiness.sh
 ./scripts/ubuntu.sh
 
 # Configure bash
-echo -e "\nsource ~/code/rbwsam/dotfiles/.bash_conf" >> ~/.bashrc
+echo -e "\nsource ~/code/rbwsam/dotfiles/config.sh" >> ~/.bashrc
 ```
 
 ## Create an SSH key
