@@ -30,6 +30,14 @@ cat ~/.ssh/id_rsa.pub | pbcopy
 
 Go to GitHub and paste the new key: [https://github.com/settings/keys](https://github.com/settings/keys)
 
+## Configure git
+
+```
+cp ~/code/rbwsam/dotfiles/.gitignoreglobal ~/
+cp ~/code/rbwsam/dotfiles/.gitconfig ~/
+git config --global --replace-all user.email YOU@YOUREMAIL.COM
+```
+
 ## Notes
 
 ### GoLand freezes when opening a markdown file
