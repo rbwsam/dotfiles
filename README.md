@@ -7,7 +7,7 @@ I hate reconfiguring apps.
 ```bash
 # Set up
 sudo apt update && sudo apt install -y git
-mkir -p ~/code/rbwsam && cd ~/code/rbwsam
+mkdir -p ~/code/rbwsam && cd ~/code/rbwsam
 git clone https://github.com/rbwsam/dotfiles.git
 
 # Install packages
