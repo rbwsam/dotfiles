@@ -8,7 +8,7 @@ I hate reconfiguring apps.
 # Set up
 sudo apt update && sudo apt install -y git
 mkdir -p ~/code/rbwsam && cd ~/code/rbwsam
-git clone https://github.com/rbwsam/dotfiles.git
+git clone https://github.com/rbwsam/dotfiles.git && cd dotfiles
 
 # Install packages
 ./scripts/packages.sh
