@@ -10,6 +10,7 @@
 	lg = log --decorate --date=local
 	st = status
 	c = commit
+	diffc = diff --cached
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [branch]
