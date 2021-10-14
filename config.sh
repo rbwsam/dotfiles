@@ -1,10 +1,3 @@
-alias kc="kubectl"
-alias kc.all="kubectl get all --all-namespaces"
-alias kc.all.watch="watch -n 3 kubectl get all --all-namespaces"
-alias kc.dashboard="watch -n 3 kubectl get pods --all-namespaces"
-alias kc.contexts="kubectl config get-contexts"
-alias kc.context="kubectl config use-context"
-
 alias up="sudo apt update && sudo apt upgrade"
 
 alias pbcopy='xsel --clipboard --input'

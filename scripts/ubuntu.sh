@@ -2,7 +2,7 @@
 
 set -e
 
-sudo apt remove --purge gnome-shell-extension-ubuntu-dock gnome-shell-extension-desktop-icons
+sudo apt remove --purge gnome-shell-extension-ubuntu-dock gnome-shell-extension-desktop-icons gnome-shell-extension-desktop-icons-ng
 
 dconf write /org/gnome/shell/window-switcher/current-workspace-only false
 dconf write /org/gnome/mutter/dynamic-workspaces false
