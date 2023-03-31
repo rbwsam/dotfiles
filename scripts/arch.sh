@@ -17,11 +17,14 @@ ln -s ~/code/rbwsam/dotfiles/.gitignoreglobal ~/.gitignoreglobal
 cp ~/code/rbwsam/dotfiles/.gitconfig ~/
 
 # Configure desktop
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
 ln -s ~/code/rbwsam/dotfiles/.xinitrc ~/.xinitrc
 ln -s ~/code/rbwsam/dotfiles/.config/i3 ~/.config/i3
 ln -s ~/code/rbwsam/dotfiles/.config/i3status ~/.config/i3status
 ln -s ~/code/rbwsam/dotfiles/.config/alacritty ~/.config/alacritty
 ln -s ~/code/rbwsam/dotfiles/.config/picom ~/.config/picom
+ln -s ~/code/rbwsam/dotfiles/.config/gtk-3.0 ~/.config/gtk-3.0
 
 # Configure X11
 sudo cp xorg.conf.d/* /etc/X11/xorg.conf.d/
