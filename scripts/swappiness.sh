@@ -19,6 +19,6 @@ echo "swappiness is high at $current, setting to $target right now"
 sysctl -q vm.swappiness=$target
 
 echo "saving the setting for future boots"
-printf "\nvm.swappiness=$target\n" >> /etc/sysctl.conf
+printf "vm.swappiness=$target\n" > /etc/sysctl.d/99-swappiness.conf
 
 echo "you're all set"
