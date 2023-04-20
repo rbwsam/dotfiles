@@ -7,7 +7,7 @@ set -e
 mkdir -p ~/bin ~/tmp ~/go ~/Downloads
 
 # Install packages
-sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go python python-pip ttf-inconsolata transmission-gtk vlc chromium gimp fwupd acpi
+sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go python python-pip ttf-inconsolata transmission-gtk vlc chromium gimp fwupd acpi bash-completion
 
 # Configure bash
 echo -e "\nsource ~/code/rbwsam/dotfiles/.bashrc" >> ~/.bashrc
