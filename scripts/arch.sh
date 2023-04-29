@@ -7,7 +7,7 @@ set -e
 mkdir -p ~/bin ~/tmp ~/go ~/Downloads
 
 # Install packages
-sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go python python-pip ttf-inconsolata transmission-gtk vlc chromium gimp fwupd acpi bash-completion
+sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go python python-pip ttf-inconsolata transmission-gtk vlc chromium gimp fwupd acpi bash-completion alacritty ruby brightnessctl pulsemixer
 
 # Configure bash
 echo -e "\nsource ~/code/rbwsam/dotfiles/.bashrc" >> ~/.bashrc
@@ -41,7 +41,7 @@ yay --version
 rm -rf ~/tmp/yay
 
 # Install AUR packages
-yay -Sy --needed mullvad-vpn-bin zoom
+yay -Sy --needed mullvad-vpn-bin zoom sublime-text
 
 # Install pipenv
 pip install --user pipenv
