@@ -4,7 +4,7 @@
 set -e
 
 # Create directories
-mkdir -p ~/bin ~/tmp ~/go ~/Downloads
+mkdir -p ~/.ssh ~/bin ~/tmp ~/go ~/Downloads
 
 # Install packages
 sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go python python-pip ttf-inconsolata transmission-gtk vlc chromium gimp fwupd acpi bash-completion alacritty ruby brightnessctl pulsemixer man
@@ -19,6 +19,7 @@ cp ~/code/rbwsam/dotfiles/.gitconfig ~/
 # Configure desktop
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
+ln -s ~/code/rbwsa/dotfiles/.ssh/config ~/.ssh/config
 ln -s ~/code/rbwsam/dotfiles/.xinitrc ~/.xinitrc
 ln -s ~/code/rbwsam/dotfiles/.config/i3 ~/.config/i3
 ln -s ~/code/rbwsam/dotfiles/.config/i3status ~/.config/i3status
