@@ -7,7 +7,7 @@ set -e
 mkdir -p ~/.ssh ~/bin ~/tmp ~/go ~/Downloads
 
 # Install packages
-sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go python python-pip ttf-inconsolata transmission-gtk vlc chromium gimp fwupd acpi bash-completion alacritty ruby brightnessctl pulsemixer man
+sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go ttf-inconsolata transmission-gtk vlc chromium gimp fwupd acpi bash-completion alacritty brightnessctl pulsemixer man
 
 # Configure bash
 echo -e "\nsource ~/code/rbwsam/dotfiles/.bashrc" >> ~/.bashrc
@@ -28,7 +28,7 @@ ln -s ~/code/rbwsam/dotfiles/.config/picom ~/.config/picom
 ln -s ~/code/rbwsam/dotfiles/.config/gtk-3.0 ~/.config/gtk-3.0
 
 # Configure X11
-sudo cp xorg.conf.d/* /etc/X11/xorg.conf.d/
+sudo cp ~/code/rbwsam/dotfiles/xorg.conf.d/* /etc/X11/xorg.conf.d/
 
 # Install yay
 mkdir ~/tmp/yay
@@ -42,7 +42,5 @@ yay --version
 rm -rf ~/tmp/yay
 
 # Install AUR packages
-yay -Sy --needed mullvad-vpn-bin zoom sublime-text
+yay -Sy --needed mullvad-vpn-bin sublime-text
 
-# Install pipenv
-pip install --user pipenv
