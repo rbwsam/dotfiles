@@ -22,12 +22,12 @@ order += "tztime local"
 
 wireless _first_ {
         format_up = "%quality %essid"
-        format_down = "wifi down"
+        format_down = "w down"
 }
 
 ethernet _first_ {
-        format_up = "eth up"
-        format_down = "eth down"
+        format_up = "e up"
+        format_down = "e down"
 }
 
 battery all {
