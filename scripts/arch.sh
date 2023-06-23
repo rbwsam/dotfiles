@@ -7,7 +7,7 @@ set -e
 mkdir -p ~/.ssh ~/bin ~/tmp ~/go ~/Downloads
 
 # Install packages
-sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go ttf-inconsolata transmission-gtk vlc chromium gimp fwupd acpi bash-completion alacritty brightnessctl pulsemixer man
+sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go ttf-inconsolata transmission-gtk vlc chromium gimp fwupd acpi bash-completion alacritty brightnessctl pulsemixer man gnome-screenshot
 
 # Configure bash
 echo -e "\nsource ~/code/rbwsam/dotfiles/.bashrc" >> ~/.bashrc
