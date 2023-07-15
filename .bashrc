@@ -18,6 +18,7 @@ fi
 complete -cf sudo
 
 alias ip='ip -color=auto'
+alias lock='loginctl lock-session'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias compose='docker-compose'
