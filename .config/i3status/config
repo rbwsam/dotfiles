@@ -14,7 +14,8 @@ general {
 #order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
-order += "battery all"
+order += "battery 0"
+order += "battery 1"
 #order += "disk /"
 #order += "load"
 #order += "memory"
@@ -30,8 +31,16 @@ ethernet _first_ {
         format_down = "e down"
 }
 
-battery all {
+battery 0 {
         format = "%status %percentage"
+	format_percentage = "%.f%s"
+	last_full_capacity = true
+}
+
+battery 1 {
+	format = "%status %percentage"
+	format_percentage = "%.f%s"
+	last_full_capacity = true
 }
 
 disk "/" {
