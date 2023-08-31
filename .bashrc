@@ -20,7 +20,7 @@ complete -cf sudo
 alias ip='ip -color=auto'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
-alias compose='docker-compose'
+alias compose='docker compose'
 
 alias up="yay -Syu"
 alias wip="git c -am WIP && git push"
