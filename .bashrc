@@ -21,7 +21,8 @@ alias ip='ip -color=auto'
 alias lock='loginctl lock-session'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
-alias compose='docker-compose'
+alias compose='docker compose'
+alias bat='bat -p'
 
 alias up="yay -Syu"
 alias wip="git c -am WIP && git push"
