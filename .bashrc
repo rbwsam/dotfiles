@@ -22,6 +22,7 @@ alias lock='loginctl lock-session'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias compose='docker-compose'
+alias bat='bat -p'
 
 alias up="yay -Syu"
 alias wip="git c -am WIP && git push"
@@ -30,5 +31,5 @@ export VISUAL="subl"
 export EDITOR="vim"
 export GOPATH="$HOME/go"
 export PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\] \[\e[36m\]\W\[\e[m\]]\\$ "
-export PATH="$HOME/bin:$GOPATH/bin:$PATH"
+export PATH="$HOME/bin:$GOPATH/bin:$HOME/.local/bin:$PATH"
 

@@ -7,7 +7,7 @@ set -e
 mkdir -p ~/.ssh ~/bin ~/tmp ~/go ~/Downloads
 
 # Install packages
-sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go ttf-inconsolata transmission-gtk vlc chromium gimp fwupd acpi bash-completion alacritty brightnessctl pulsemixer man gnome-screenshot fuse2 libappindicator-gtk3 noto-fonts noto-fonts-emoji unzip
+sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go ttf-inconsolata transmission-gtk vlc chromium gimp fwupd udisks2 acpi bash-completion alacritty brightnessctl pulsemixer man gnome-screenshot fuse2 libappindicator-gtk3 noto-fonts noto-fonts-emoji unzip openssh
 
 # Configure bash
 echo -e "\nsource ~/code/rbwsam/dotfiles/.bashrc" >> ~/.bashrc
@@ -42,5 +42,5 @@ yay --version
 rm -rf ~/tmp/yay
 
 # Install AUR packages
-yay -Sy --needed mullvad-vpn-bin sublime-text
+yay -Sy --needed sublime-text
 
