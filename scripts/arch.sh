@@ -41,6 +41,3 @@ popd
 yay --version
 rm -rf ~/tmp/yay
 
-# Install AUR packages
-yay -Sy --needed sublime-text
-
