@@ -19,6 +19,7 @@ complete -cf sudo
 
 alias ip='ip -color=auto'
 alias lock='loginctl lock-session'
+alias sus='sudo systemctl suspend'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias compose='docker-compose'
