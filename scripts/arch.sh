@@ -21,6 +21,7 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 ln -s ~/code/rbwsam/dotfiles/.ssh/config ~/.ssh/config
 ln -s ~/code/rbwsam/dotfiles/.xinitrc ~/.xinitrc
+ln -s ~/code/rbwsam/dotfiles/.Xresources ~/.Xresources
 ln -s ~/code/rbwsam/dotfiles/.config/i3 ~/.config/i3
 ln -s ~/code/rbwsam/dotfiles/.config/i3status ~/.config/i3status
 ln -s ~/code/rbwsam/dotfiles/.config/alacritty ~/.config/alacritty
