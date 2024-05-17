@@ -16,6 +16,9 @@ echo -e "\nsource ~/code/rbwsam/dotfiles/.bashrc" >> ~/.bashrc
 ln -s ~/code/rbwsam/dotfiles/.gitignoreglobal ~/.gitignoreglobal
 cp ~/code/rbwsam/dotfiles/.gitconfig ~/
 
+# Enable ssh-agent
+systemctl --user enable --now ssh-agent
+
 # Configure desktop
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 

@@ -2,14 +2,6 @@
 # ~/.bashrc
 #
 
-# Start ssh-agent
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
-fi
-if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
-fi
-
 # Start X
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
@@ -28,6 +20,7 @@ alias bat='bat -p'
 alias up="yay -Syu"
 alias wip="git c -am WIP && git push"
 
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export VISUAL="subl"
 export EDITOR="vim"
 export GOPATH="$HOME/go"
