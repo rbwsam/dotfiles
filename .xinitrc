@@ -34,4 +34,16 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+#
+# Example setting higher refresh rate (specific to output port and monitor):
+#
+# xrandr --output HDMI-A-0 --mode 2560x1440 --rate 144 &
+#
+
+#
+# Set background image with feh (feh --bg-fill FILE):
+#
+# ~/.fehbg.sh &
+#
+
 exec i3
