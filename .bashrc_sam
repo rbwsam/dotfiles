@@ -9,14 +9,15 @@ fi
 
 complete -cf sudo
 
+alias ls='lsd'
 alias ip='ip -color=auto'
 alias lock='loginctl lock-session'
 alias sus='sudo systemctl suspend'
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias compose='docker-compose'
-alias up="yay -Syu"
-alias wip="git c -am WIP && git push"
+alias up='yay -Syu'
+alias wip='git c -am WIP && git push'
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR="vim"
