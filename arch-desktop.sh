@@ -13,7 +13,7 @@ sudo cp $SCRIPT_DIR/xorg.conf.d/* /etc/X11/xorg.conf.d/
 mkdir -p ~/bin ~/tmp ~/Downloads
 
 # Install packages
-sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go ttf-inconsolata transmission-gtk vlc chromium gimp fwupd udisks2 acpi bash-completion alacritty brightnessctl pulsemixer man gnome-screenshot fuse2 libappindicator-gtk3 noto-fonts noto-fonts-emoji unzip openssh x11-ssh-askpass pigz rsync direnv python-pipx lsd ttf-firacode-nerd
+sudo pacman -Sy --needed i3 dmenu xss-lock i3lock dex xorg-xset xorg-xrdb xorg-xrandr htop xsel iotop sysstat vim curl git git-delta bat jq go ttf-inconsolata transmission-gtk vlc chromium gimp fwupd udisks2 acpi bash-completion alacritty brightnessctl pulsemixer man gnome-screenshot fuse2 libappindicator-gtk3 noto-fonts noto-fonts-emoji unzip openssh x11-ssh-askpass pigz rsync direnv python-pipx lsd ttf-firacode-nerd bc
 
 # Dark mode in gsettings
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
