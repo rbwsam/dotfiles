@@ -19,8 +19,8 @@ alias compose='docker-compose'
 alias up='yay -Syu'
 alias wip='git c -am WIP && git push'
 
-alias bu='brightnessctl s +10%'
-alias bd='brightnessctl s 10%-'
+alias backup='brightnessctl s +10%'
+alias backdown='brightnessctl s 10%-'
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR="vim"
