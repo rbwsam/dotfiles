@@ -19,6 +19,9 @@ alias compose='docker-compose'
 alias up='yay -Syu'
 alias wip='git c -am WIP && git push'
 
+alias bu='brightnessctl s +10%'
+alias bd='brightnessctl s 10%-'
+
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR="vim"
 export PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\] \[\e[36m\]\W\[\e[m\]]\\$ "
