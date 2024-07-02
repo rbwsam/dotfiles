@@ -21,6 +21,7 @@ alias wip='git c -am WIP && git push'
 
 alias backup='brightnessctl s +10%'
 alias backdown='brightnessctl s 10%-'
+alias backmax='brightnessctl s 100%'
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR="vim"
