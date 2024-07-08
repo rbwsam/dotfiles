@@ -34,6 +34,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+export GTK_THEME="Adwaita:dark"
+
 #
 # Example setting higher refresh rate (specific to output port and monitor):
 #
