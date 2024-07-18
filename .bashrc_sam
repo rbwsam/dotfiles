@@ -17,7 +17,7 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias compose='docker-compose'
 alias up='yay -Syu'
-alias wip='git c -am WIP && git push'
+alias wip='git commit -a --allow-empty-message -m "" && git push'
 
 alias backup='brightnessctl s +10%'
 alias backdown='brightnessctl s 10%-'
