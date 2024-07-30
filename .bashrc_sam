@@ -7,6 +7,11 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi
 
+# Export ssh auth socket
+if [[ -z "${SSH_CONNECTION}" ]]; then
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+fi
+
 complete -cf sudo
 
 alias ls='lsd'
@@ -23,7 +28,6 @@ alias backup='brightnessctl s +10%'
 alias backdown='brightnessctl s 10%-'
 alias backmax='brightnessctl s 100%'
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR="vim"
 export PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\] \[\e[36m\]\W\[\e[m\]]\\$ "
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
