@@ -24,7 +24,7 @@ alias compose='docker-compose'
 alias up='yay -Syu'
 alias wip='git commit -a --allow-empty-message -m "" && git push'
 
-alias bluestatus='sudo systemctl status bluetooth'
+alias bluestatus='systemctl status bluetooth'
 alias blueon='sudo systemctl start bluetooth'
 alias blueoff='sudo systemctl stop bluetooth'
 
