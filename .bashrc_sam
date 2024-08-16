@@ -22,6 +22,7 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias compose='docker-compose'
 alias up='yay -Syu'
+alias batp='bat -p'
 alias wip='git commit -a --allow-empty-message -m "" && git push'
 
 alias bluestatus='systemctl status bluetooth'
