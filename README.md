@@ -11,14 +11,14 @@ mkdir -p ~/code/rbwsam && cd ~/code/rbwsam
 git clone https://github.com/rbwsam/dotfiles.git && cd dotfiles
 
 # Run scripts
-./scripts/arch.sh
+./scripts/arch-desktop.sh
 ```
 
 ## Create an SSH key
 
 ```
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub | pbcopy
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub | pbcopy
 ```
 
 Go to GitHub and paste the new key: [https://github.com/settings/keys](https://github.com/settings/keys)
