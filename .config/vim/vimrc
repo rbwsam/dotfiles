@@ -1,1 +1,4 @@
 set mouse-=a
+
+filetype plugin on
+syntax on
