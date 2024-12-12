@@ -15,6 +15,7 @@ fi
 complete -cf sudo
 
 alias ls='lsd'
+alias ll='ls -l'
 alias ip='ip -color=auto'
 alias lock='loginctl lock-session'
 alias sus='sudo systemctl suspend'
@@ -24,6 +25,7 @@ alias compose='docker-compose'
 alias up='yay -Syu'
 alias batp='bat -p'
 alias wip='git commit -a --allow-empty-message -m "" && git push'
+alias pr='pipenv run'
 
 alias bluestatus='systemctl status bluetooth'
 alias blueon='sudo systemctl start bluetooth'
