@@ -22,8 +22,8 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 systemctl --user enable --now ssh-agent
 
 # Configure bash
-cp $SCRIPT_DIR/.bashrc_sam ~/
-echo -e "\nsource ~/.bashrc_sam" >> ~/.bashrc
+cp $SCRIPT_DIR/.sam.sh ~/
+echo -e "\nsource ~/.sam.sh" >> ~/.bashrc
 
 # Configure git
 cp $SCRIPT_DIR/.gitignoreglobal ~/

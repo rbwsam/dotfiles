@@ -9,3 +9,8 @@ family = "Noto Sans Mono"
 [terminal.shell]
 args = ["--login"]
 program = "/bin/bash"
+
+[colors]
+
+[colors.primary]
+background = "#000000"
