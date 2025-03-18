@@ -11,7 +11,7 @@ mkdir -p ~/code/rbwsam && cd ~/code/rbwsam
 git clone https://github.com/rbwsam/dotfiles.git && cd dotfiles
 
 # Run scripts
-./scripts/arch-desktop.sh
+./arch-desktop.sh
 ```
 
 ## Create an SSH key
