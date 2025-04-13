@@ -15,7 +15,7 @@ fi
 complete -cf sudo
 
 alias ls='lsd'
-alias ll='ls -la'
+alias ll='ls -lA'
 alias ip='ip -color=auto'
 alias lock='loginctl lock-session'
 alias sus='sudo systemctl suspend'
