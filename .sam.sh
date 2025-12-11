@@ -38,6 +38,7 @@ alias backup='brightnessctl s +10%'
 alias backdown='brightnessctl s 10%-'
 alias backmax='brightnessctl s 100%'
 
+export LIBVIRT_DEFAULT_URI="qemu:///system"
 export EDITOR="vim"
 export PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\] \[\e[36m\]\W\[\e[m\]]\\$ "
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
