@@ -5,7 +5,7 @@
 [color]
 	ui = true
 [user]
-	email = CHANGE_ME 
+	email = CHANGE_ME
 	name = Sam Leavens
 [alias]
 	lg = log --decorate --date=local
@@ -16,6 +16,7 @@
 	autoSetupMerge = always
 [push]
 	default = current
+	autoSetupRemote = true
 [pull]
 	ff = only
 [interactive]
@@ -29,3 +30,4 @@
 	colorMoved = default
 [init]
 	defaultBranch = main
+
