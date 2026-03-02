@@ -59,6 +59,9 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# start terminal in CWD
+bindsym $mod+Shift+Return exec ~/.config/i3/scripts/open-alacritty-cwd.sh
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
