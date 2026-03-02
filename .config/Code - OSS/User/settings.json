@@ -2,5 +2,7 @@
     "chat.agentsControl.enabled": false,
     "files.insertFinalNewline": true,
     "files.autoSave": "afterDelay",
-    "window.restoreWindows": "none"
+    "window.restoreWindows": "none",
+    "redhat.telemetry.enabled": false,
+    "files.enableTrash": false,
 }
