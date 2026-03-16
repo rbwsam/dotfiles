@@ -19,11 +19,18 @@ set $mod Mod4
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 10
 
-default_border none
+default_border pixel 1
 smart_borders on
 smart_gaps on
-gaps inner 5
-gaps outer -5
+
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #555555
+client.unfocused        #333333 #222222 #888888 #292d2e   #000000
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #000000
+
+gaps inner 8
+gaps outer 0
+
+exec_always --no-startup-id xsetroot -solid "#1a1a1a"
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -34,9 +41,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000 -e 
-
-exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000 -e
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -201,3 +206,5 @@ bindsym $mod+Mod1+l --release exec --no-startup-id "loginctl lock-session"
 bar {
         status_command i3status
 }
+
+include ~/.config/i3/config.d/*.conf
