@@ -43,3 +43,5 @@ export EDITOR="vim"
 export PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\] \[\e[36m\]\W\[\e[m\]]\\$ "
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
+# direnv
+eval "$(direnv hook bash)"
