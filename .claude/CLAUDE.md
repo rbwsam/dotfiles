@@ -6,14 +6,10 @@
   - Always use the idiomatic style for the language and framework being used.
   - Always use modern syntax.
 
-  ## Git
-
-  - Do not add AI co-authors to commit messages.
-
   ## Suggestions
 
   After completing changes, list suggested improvements separately (do not apply). Always verfiy your suggestions before offering them.
-  
+
   Format:
 
   **Suggestions:**
@@ -27,7 +23,9 @@
   - Plan changes before suggesting code changes.
   - Node: Use fnm, npm
   - Python: Use uv, target latest stable Python
-  - Commits: Conventional commits format
+  - Conventional commits format with markdown list, no prefixes
+  - Do not add AI co-authors to commit messages.
+
   - Shell: Bash-compatible
 
   ## Best Practices (Non-Negotiable)
