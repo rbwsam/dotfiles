@@ -28,9 +28,30 @@ Work through the phases below **in order**. For each phase:
 - Ask 2-4 focused questions using the AskUserQuestion tool
 - Drill deeper with follow-up questions when answers are vague, contradictory, or reveal unstated assumptions
 - Summarize what you've captured before moving to the next phase
-- If the user's answer in one phase affects a decision from a prior phase, flag the conflict and resolve it before continuing
+- Run the **Inter-Phase Review** (below) before advancing
 
 Do NOT skip phases. Do NOT combine phases. Each phase builds on the previous ones.
+
+### Inter-Phase Review
+
+After summarizing a completed phase and before starting the next one, perform this review:
+
+1. **Problem scan** — Re-read the phase summary looking for:
+   - Contradictions or ambiguity within the phase itself
+   - Hidden complexity that was accepted without discussion
+   - Assumptions that haven't been validated
+   - Gaps: important questions that weren't asked or answered
+   Present any findings to the user and resolve them before continuing.
+
+2. **Optimization check** — Ask whether the decisions in this phase are the simplest path that satisfies the PROJECT_TYPE. Flag anything that is over- or under-engineered relative to the project type.
+
+3. **Cascade analysis** — Compare the phase's decisions against every prior phase summary. For each prior phase, check:
+   - Do any new decisions invalidate, weaken, or conflict with earlier ones?
+   - Do any new decisions unlock a simpler approach to something decided earlier?
+   - Has scope shifted in a way that changes the acceptance criteria or success definition?
+   If conflicts or improvements are found, present them to the user, resolve them, and **update the affected prior phase summary** so it stays current. Do not carry forward stale decisions.
+
+Only advance to the next phase when the review surfaces no unresolved issues.
 
 ## Phase 1: Vision & Problem Space
 
@@ -153,9 +174,21 @@ Questions to explore:
 
 After all phases are complete:
 
+### Final Consistency Review
+
+Before generating documents, perform a single full-pass review across all phase summaries:
+
+1. **Cross-phase consistency** — Read every phase summary end-to-end. Check that no decision in a later phase contradicts or undermines an earlier one. The inter-phase reviews caught pairwise issues incrementally, but this pass catches emergent inconsistencies that only become visible when the full picture is assembled.
+2. **Scope drift** — Compare the final set of use cases, acceptance criteria, and timeline against the original vision and PROJECT_TYPE. Flag anything that has quietly grown beyond the scope-guard threshold.
+3. **Completeness** — Verify every use case has acceptance criteria, every tech choice has rationale, every risk has a mitigation, and every external dependency is accounted for in the API and infrastructure phases.
+4. **Implementability** — Read the decisions as if you were a fresh Claude Code session about to build this. Flag anything ambiguous, underspecified, or dependent on context that only exists in this conversation and not in the summaries.
+
+Present all findings to the user and resolve them before proceeding.
+
+### Document Generation
+
 1. Summarize all decisions and confirm with the user
-2. Flag any contradictions, gaps, or risks discovered during the session
-3. Ask the user to resolve any open items
+2. Ask the user to resolve any remaining open items
 
 Then generate the following documents in the output directory (determined by PROJECT_TYPE):
 

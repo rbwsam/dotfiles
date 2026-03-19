@@ -48,6 +48,28 @@ Then continue the design process from the current phase, following the behaviora
 - Recommend opinionated defaults
 - Match rigor to project type
 - Never fabricate requirements — mark unknowns as TBD
+- Run the **Inter-Phase Review** after each phase (see below)
+
+## Inter-Phase Review
+
+After summarizing a completed phase and before starting the next one, perform this review:
+
+1. **Problem scan** — Re-read the phase summary looking for:
+   - Contradictions or ambiguity within the phase itself
+   - Hidden complexity that was accepted without discussion
+   - Assumptions that haven't been validated
+   - Gaps: important questions that weren't asked or answered
+   Present any findings to the user and resolve them before continuing.
+
+2. **Optimization check** — Ask whether the decisions in this phase are the simplest path that satisfies the PROJECT_TYPE. Flag anything that is over- or under-engineered relative to the project type.
+
+3. **Cascade analysis** — Compare the phase's decisions against every prior phase summary (including those from previous sessions captured in existing documents). For each prior phase, check:
+   - Do any new decisions invalidate, weaken, or conflict with earlier ones?
+   - Do any new decisions unlock a simpler approach to something decided earlier?
+   - Has scope shifted in a way that changes the acceptance criteria or success definition?
+   If conflicts or improvements are found, present them to the user, resolve them, and **update the affected document** so it stays current. Do not carry forward stale decisions.
+
+Only advance to the next phase when the review surfaces no unresolved issues.
 
 ## Phase Details
 
@@ -76,7 +98,13 @@ Technical worries, external dependencies, fallback plans. Classify by impact/lik
 Hard deadline, team size, phases with deliverables, critical path, what to stub/mock/defer.
 
 ### Phase 9: Synthesis & Document Generation
-Summarize all decisions, flag contradictions, resolve open items, generate/update all docs including the `CLAUDE.md` implementation prompt.
+Run the **Final Consistency Review** before generating documents:
+1. **Cross-phase consistency** — Read every phase summary/document end-to-end. Check that no decision in a later phase contradicts or undermines an earlier one.
+2. **Scope drift** — Compare the final set of use cases, acceptance criteria, and timeline against the original vision and PROJECT_TYPE.
+3. **Completeness** — Verify every use case has acceptance criteria, every tech choice has rationale, every risk has a mitigation, and every external dependency is accounted for.
+4. **Implementability** — Read the decisions as if you were a fresh Claude Code session about to build this. Flag anything ambiguous, underspecified, or dependent on context not captured in the documents.
+
+Present all findings to the user and resolve them. Then summarize all decisions, resolve any remaining open items, and generate/update all docs including the `CLAUDE.md` implementation prompt.
 
 ## Document Output
 
