@@ -6,6 +6,10 @@
   - Always use the idiomatic style for the language and framework being used.
   - Always use modern syntax.
 
+  ## Git
+
+  - Do not add AI co-authors to commit messages.
+
   ## Suggestions
 
   After completing changes, list suggested improvements separately (do not apply). Always verfiy your suggestions before offering them.
