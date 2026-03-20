@@ -22,19 +22,40 @@ Store this as `PROJECT_TYPE`. It affects behavior throughout:
 | Infra | Local-only is fine | Single-environment deploy | Multi-environment with proper config management |
 | Output directory | `docs/poc/` | `docs/mvp/` | `docs/design/` |
 
+## Phase 0.5: Project Scale
+
+After determining project type, assess the project scale. Ask the user using AskUserQuestion:
+- **Standard** — Well-understood problem, limited integrations, clear requirements. You could describe the full scope in a few paragraphs.
+- **Large** — Complex domain, many integrations or stakeholders, significant unknowns, requirements that need extensive exploration before decisions can be made.
+
+Store this as `PROJECT_SCALE`. This determines the process flow:
+- **Standard** → Single-pass linear flow
+- **Large** → Two-pass flow (Discovery → Uncertainty Resolution → Design)
+
 ## Process
 
-Work through the phases below **in order**. For each phase:
-- Ask 2-4 focused questions using the AskUserQuestion tool
-- Drill deeper with follow-up questions when answers are vague, contradictory, or reveal unstated assumptions
-- Summarize what you've captured before moving to the next phase
-- Run the **Inter-Phase Review** (below) before advancing
+### Per-Phase Process
+
+For every phase in either flow:
+1. Ask 2-4 focused questions using the AskUserQuestion tool
+2. Drill deeper with follow-up questions when answers are vague, contradictory, or reveal unstated assumptions
+3. Summarize what you've captured
+4. Write the phase summary to the appropriate document file immediately
+5. Run the Inter-Phase Review before advancing
 
 Do NOT skip phases. Do NOT combine phases. Each phase builds on the previous ones.
 
+### Constraint vs. Decision Separation
+
+In every phase, explicitly distinguish between:
+- **Constraints** — Fixed inputs that cannot be changed (mandated tech, compliance requirements, existing systems, deadlines, team size)
+- **Decisions** — Choices made during the design process that could be revisited
+
+When asking questions, clarify: "Is this a hard requirement or a preference?" When cascade analysis triggers, only decisions need re-evaluation — constraints are load-bearing walls.
+
 ### Inter-Phase Review
 
-After summarizing a completed phase and before starting the next one, perform this review:
+After writing a completed phase to disk and before starting the next one:
 
 1. **Problem scan** — Re-read the phase summary looking for:
    - Contradictions or ambiguity within the phase itself
@@ -50,11 +71,74 @@ After summarizing a completed phase and before starting the next one, perform th
    - Do any new decisions invalidate, weaken, or conflict with earlier ones?
    - Do any new decisions unlock a simpler approach to something decided earlier?
    - Has scope shifted in a way that changes the acceptance criteria or success definition?
-   If conflicts or improvements are found, present them to the user, resolve them, and **update the affected prior phase summary** so it stays current. Do not carry forward stale decisions.
+   If conflicts or improvements are found, present them to the user, resolve them, and **update the affected document file** so it stays current. Do not carry forward stale decisions.
 
 Only advance to the next phase when the review surfaces no unresolved issues.
 
-## Phase 1: Vision & Problem Space
+### Standard Flow
+
+Work through the following phases in order. Write each document immediately after the phase completes.
+
+1. Vision & Problem Space → `01-overview.md`
+2. Landscape Survey → `00-landscape.md`
+3. Use Cases & Acceptance Criteria → `02-use-cases.md`
+4. Technology Choices → `03-technology.md`
+5. Data Model → `04-data-model.md`
+6. Interfaces & Integration → `05-interfaces.md`
+7. Infrastructure & Deployment → `06-infrastructure.md`
+8. Risk Register → `07-risks.md`
+9. Timeline & Milestones → `08-timeline.md`
+10. Synthesis → `CLAUDE.md`
+
+### Large Project Flow
+
+#### Pass 1 — Discovery
+
+Goal: surface the full problem space, constraints, and uncertainties before making binding decisions. Documents written during this pass are marked with a DRAFT banner at the top:
+
+```
+> **DRAFT** — This document will be refined during the Design pass.
+```
+
+| Phase | Writes to |
+|---|---|
+| Vision & Problem Space | `01-overview.md` (DRAFT) |
+| Landscape Survey | `00-landscape.md` |
+| Draft Use Cases | `02-use-cases.md` (DRAFT) |
+| Technical Feasibility | `03-technology.md` (DRAFT) |
+
+#### Uncertainty Resolution Gate
+
+After completing Discovery, before starting Design:
+
+1. Review `00-landscape.md` and all DRAFT documents
+2. List the top uncertainties — things where the answer materially affects design decisions
+3. For each uncertainty, present to the user:
+   - **What is unknown**
+   - **Why it matters** — which downstream decisions depend on it
+   - **How to resolve it** — research, spike, user decision, or accept as risk
+4. Ask the user to resolve each one
+5. Update affected documents with resolutions
+6. Only proceed to Pass 2 when all critical uncertainties are resolved or explicitly accepted as risks in `00-landscape.md`
+
+#### Pass 2 — Design
+
+Goal: make binding decisions with full context from Discovery. Remove the DRAFT banner from documents as they are finalized.
+
+| Phase | Writes to |
+|---|---|
+| Use Cases & Acceptance Criteria (refined) | update `02-use-cases.md` (remove DRAFT) |
+| Technology Choices | update `03-technology.md` (remove DRAFT) |
+| Data Model | `04-data-model.md` |
+| Interfaces & Integration | `05-interfaces.md` |
+| Infrastructure & Deployment | `06-infrastructure.md` |
+| Risk Register | `07-risks.md` |
+| Timeline & Milestones | `08-timeline.md` |
+| Synthesis | update `01-overview.md` (remove DRAFT), generate `CLAUDE.md` |
+
+## Phase Definitions
+
+### Vision & Problem Space
 
 Understand what this project exists to achieve and for whom.
 
@@ -66,7 +150,32 @@ Questions to explore:
 - Is there an existing solution being replaced, or is this greenfield?
 - What is the deadline or time constraint?
 
-## Phase 2: Use Cases & Acceptance Criteria
+### Landscape Survey
+
+Surface the constraint envelope before any binding decisions are made. This phase prevents the churn that happens when later phases reveal constraints that invalidate earlier decisions.
+
+**Standard projects**: Focus on constraints and mandated tech. Keep it to one round of questions — capture what's fixed, flag obvious unknowns, move on.
+
+**Large projects**: Go deeper. Explore prior art, team composition, scale expectations, and the full set of unknowns. This is the foundation for the Uncertainty Resolution Gate.
+
+Questions to explore:
+- What technologies are mandated or already in use? (existing infrastructure, team expertise, client requirements)
+- What external systems must this integrate with? What are their constraints?
+- What are the compliance, security, or legal requirements?
+- What is the team composition? Who is building this and what are their strengths?
+- What is the expected scale? (users, data volume, request throughput)
+- What has been tried before? What failed and why? (large projects)
+- What are the biggest unknowns or areas of uncertainty? (large projects)
+
+For each item captured, mark it as a **Constraint** (fixed) or **Unknown** (needs resolution).
+
+Write to `00-landscape.md` with sections:
+1. **Constraints** — Fixed inputs that bound all subsequent decisions
+2. **Unknowns** — Things that need to be resolved before or during design
+3. **Scale & Volume** — Expected operational parameters
+4. **Prior Art** — What's been tried, what worked, what didn't (large projects — omit for standard if nothing relevant)
+
+### Use Cases & Acceptance Criteria
 
 Define the concrete behaviors the project must exhibit.
 
@@ -85,25 +194,30 @@ WHEN [action]
 THEN [observable result]
 ```
 
-### Use Case Validation Gate
+#### Use Case Validation Gate
 
 After capturing all use cases, test each one: **"Does this describe a user performing an action to achieve a goal?"** If not, it is not a use case — move it to Cross-Cutting Requirements. Common misclassifications:
 - System behavior constraints (e.g., "don't hallucinate") → Cross-Cutting Requirements
 - Quality attributes (e.g., "responses must be fast") → Cross-Cutting Requirements
-- Implementation details (e.g., "uses LLaVA for captioning") → belongs in Phase 3 (Technology)
+- Implementation details (e.g., "uses LLaVA for captioning") → belongs in Technology phase
 
-### Content Ownership Rule
+#### Content Ownership Rule
 
 Use cases describe **what** (user does X, system delivers Y), never **how** (implementation approach, technology choices, architecture). If a use case needs a "Note:" or "Approach:" paragraph to explain how it works, that content belongs in a later phase. Keep each UC to its GIVEN/WHEN/THEN block and nothing more.
 
-### Standard Sections for 02-use-cases.md
+#### Standard Sections for 02-use-cases.md
 
 The use cases document must include these sections:
 1. **Use Cases** — GIVEN/WHEN/THEN acceptance criteria only
-2. **Cross-Cutting Requirements** — Behavioral constraints that apply across all use cases (e.g., citations, multi-turn conversation, hallucination guardrails)
-3. **Known Limitations** — Constraints on what the system can deliver that qualify the acceptance criteria (e.g., context window limits, accuracy caveats, performance bounds)
+2. **Cross-Cutting Requirements** — Behavioral constraints that apply across all use cases
+3. **Known Limitations** — Constraints on what the system can deliver that qualify the acceptance criteria
+4. **Out of Scope** — Explicitly excluded functionality
 
-## Phase 3: Technology Choices
+#### Draft vs. Final (Large Projects)
+
+During Discovery, use cases can be sketched without full GIVEN/WHEN/THEN — focus on capturing the breadth of workflows and identifying which areas need deeper exploration. During Design, refine each into full acceptance criteria.
+
+### Technology Choices
 
 Make and document stack decisions with rationale.
 
@@ -119,10 +233,15 @@ Questions to explore:
 
 For each choice, document:
 - **Choice**: what was selected
+- **Constraint or Decision**: is this fixed or flexible?
 - **Rationale**: why this over alternatives (contextualized to the PROJECT_TYPE)
 - **Risk**: what could go wrong with this choice
 
-## Phase 4: Data Model
+#### Draft vs. Final (Large Projects)
+
+During Discovery, capture feasibility notes and constraints only — identify what's mandated, what capabilities are needed, and what trade-offs exist. Do not make binding choices. During Design, make final selections with full rationale.
+
+### Data Model
 
 Define the core entities and their relationships.
 
@@ -137,7 +256,7 @@ Questions to explore:
 For PoC: focus on what's needed to demonstrate the concept.
 For MVP/Production: include fields needed for auth, audit, soft-delete, etc.
 
-## Phase 5: Interfaces & Integration
+### Interfaces & Integration
 
 Define how the system's components communicate — with each other, with external services, and with users.
 
@@ -151,7 +270,7 @@ Questions to explore:
 
 Adapt the depth to the project's shape. A service needs endpoint contracts and request/response schemas. A CLI needs command structure and flag design. A pipeline needs data flow and integration points. Not every project has an API — focus on the boundaries that exist.
 
-## Phase 6: Infrastructure & Deployment
+### Infrastructure & Deployment
 
 Define how the project runs.
 
@@ -165,7 +284,7 @@ Questions to explore:
 
 For PoC: local-only is fine. For MVP+: need at least one deployed environment.
 
-## Phase 7: Risk Register & Open Questions
+### Risk Register & Open Questions
 
 Identify what could derail the project.
 
@@ -181,7 +300,7 @@ Classify each risk:
 - **Likelihood**: High / Medium / Low
 - **Mitigation**: What's the fallback plan?
 
-## Phase 8: Timeline & Milestones
+### Timeline & Milestones
 
 Define the build plan.
 
@@ -192,46 +311,28 @@ Questions to explore:
 - What is the critical path — which pieces must be done first because everything else depends on them?
 - What can be stubbed, mocked, or deferred? (Adjust based on PROJECT_TYPE)
 
-## Phase 9: Synthesis & Document Generation
+### Synthesis & Document Generation
 
 After all phases are complete:
 
-### Final Consistency Review
+#### Final Consistency Review
 
-Before generating documents, perform a single full-pass review across all phase summaries:
+Before generating the CLAUDE.md, perform a full-pass review across all documents:
 
-1. **Cross-phase consistency** — Read every phase summary end-to-end. Check that no decision in a later phase contradicts or undermines an earlier one. The inter-phase reviews caught pairwise issues incrementally, but this pass catches emergent inconsistencies that only become visible when the full picture is assembled.
+1. **Cross-phase consistency** — Read every document end-to-end. Check that no decision in a later phase contradicts or undermines an earlier one. The inter-phase reviews caught pairwise issues incrementally, but this pass catches emergent inconsistencies that only become visible when the full picture is assembled.
 2. **Scope drift** — Compare the final set of use cases, acceptance criteria, and timeline against the original vision and PROJECT_TYPE. Flag anything that has quietly grown beyond the scope-guard threshold.
-3. **Completeness** — Verify every use case has acceptance criteria, every tech choice has rationale, every risk has a mitigation, and every external dependency is accounted for in the API and infrastructure phases.
-4. **Implementability** — Read the decisions as if you were a fresh Claude Code session about to build this. Flag anything ambiguous, underspecified, or dependent on context that only exists in this conversation and not in the summaries.
+3. **Completeness** — Verify every use case has acceptance criteria, every tech choice has rationale, every risk has a mitigation, and every external dependency is accounted for in the interfaces and infrastructure documents.
+4. **Implementability** — Read the decisions as if you were a fresh Claude Code session about to build this. Flag anything ambiguous, underspecified, or dependent on context that only exists in this conversation and not in the documents.
 
 Present all findings to the user and resolve them before proceeding.
 
-### Document Generation
+#### CLAUDE.md Generation
 
 1. Summarize all decisions and confirm with the user
 2. Ask the user to resolve any remaining open items
+3. For large projects: remove the DRAFT banner from `01-overview.md` and verify all other DRAFT banners have been removed
 
-Then generate the following documents in the output directory (determined by PROJECT_TYPE):
-
-### Document Structure
-
-```
-docs/{type}/
-├── 01-overview.md           # Vision, problem, success criteria, scope boundaries
-├── 02-use-cases.md          # Use cases (GIVEN/WHEN/THEN), cross-cutting requirements, known limitations
-├── 03-technology.md         # Stack decisions with rationale and risks
-├── 04-data-model.md         # Entities, relationships, key attributes, seed data needs
-├── 05-interfaces.md         # External integrations, internal boundaries, user-facing interface
-├── 06-infrastructure.md     # How it runs, deploys, environment setup
-├── 07-risks.md              # Risk register with impact/likelihood/mitigation
-├── 08-timeline.md           # Milestones, phases, critical path, what to stub
-└── CLAUDE.md                # Implementation prompt (see below)
-```
-
-### CLAUDE.md Generation
-
-The final CLAUDE.md is the most important output. It must be a self-contained prompt that a fresh Claude Code session can use to implement the project. Structure it as:
+Then generate `CLAUDE.md` in the output directory:
 
 ```markdown
 # CLAUDE.md
@@ -272,6 +373,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 [Anything the implementer needs to watch for]
 ```
 
+## Document Structure
+
+```
+docs/{type}/
+├── 00-landscape.md           # Constraints, unknowns, scale, prior art
+├── 01-overview.md            # Vision, problem, success criteria, scope boundaries
+├── 02-use-cases.md           # Use cases (GIVEN/WHEN/THEN), cross-cutting requirements, known limitations
+├── 03-technology.md          # Stack decisions with rationale and risks
+├── 04-data-model.md          # Entities, relationships, key attributes, seed data needs
+├── 05-interfaces.md          # External integrations, internal boundaries, user-facing interface
+├── 06-infrastructure.md      # How it runs, deploys, environment setup
+├── 07-risks.md               # Risk register with impact/likelihood/mitigation
+├── 08-timeline.md            # Milestones, phases, critical path, what to stub
+└── CLAUDE.md                 # Implementation prompt (see above)
+```
+
 ## Behavioral Rules
 
 - **Be opinionated**: When the user is unsure, recommend a choice with rationale. Don't present open-ended menus.
@@ -281,3 +398,4 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Track decisions**: Maintain a running mental list of all decisions made. Reference prior decisions when they're relevant to new questions.
 - **Never fabricate requirements**: If something wasn't discussed, don't invent it for the documents. Mark it as TBD.
 - **Match rigor to project type**: A PoC doesn't need a monitoring strategy. A production system doesn't get to skip error handling. Let PROJECT_TYPE guide the depth of each phase.
+- **Separate constraints from decisions**: Always clarify whether something is a fixed constraint or a flexible decision. Document which is which. This prevents re-litigating fixed inputs during cascade analysis.
