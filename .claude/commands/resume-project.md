@@ -18,7 +18,7 @@ The design phases are:
 2. **Use Cases & Acceptance Criteria** → `02-use-cases.md`
 3. **Technology Choices** → `03-technology.md`
 4. **Data Model** → `04-data-model.md`
-5. **API & Integration Design** → `05-api-design.md`
+5. **Interfaces & Integration** → `05-interfaces.md`
 6. **Infrastructure & Deployment** → `06-infrastructure.md`
 7. **Risk Register** → `07-risks.md`
 8. **Timeline & Milestones** → `08-timeline.md`
@@ -86,8 +86,8 @@ Mandated tech, team expertise, capabilities needed, database, UI, external servi
 ### Phase 4: Data Model
 Core entities, relationships, persistence vs ephemeral, seed data, key attributes.
 
-### Phase 5: API & Integration Design
-Key endpoints, protocol (REST/GraphQL/gRPC/WS), external calls, webhooks, error handling, API keys needed.
+### Phase 5: Interfaces & Integration
+External integrations (contracts, auth, rate limits), internal component boundaries, user-facing interface shape. Adapt depth to project form — not every project has an API.
 
 ### Phase 6: Infrastructure & Deployment
 Dev environment, deployment targets, infra needed, containers, CI/CD, env vars and secrets.
@@ -120,7 +120,7 @@ docs/{type}/
 ├── 02-use-cases.md
 ├── 03-technology.md
 ├── 04-data-model.md
-├── 05-api-design.md
+├── 05-interfaces.md
 ├── 06-infrastructure.md
 ├── 07-risks.md
 ├── 08-timeline.md

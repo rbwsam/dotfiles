@@ -137,17 +137,19 @@ Questions to explore:
 For PoC: focus on what's needed to demonstrate the concept.
 For MVP/Production: include fields needed for auth, audit, soft-delete, etc.
 
-## Phase 5: API & Integration Design
+## Phase 5: Interfaces & Integration
 
-Define the interfaces — both internal and external.
+Define how the system's components communicate — with each other, with external services, and with users.
 
 Questions to explore:
-- What are the key API endpoints or operations?
-- REST, GraphQL, gRPC, WebSocket, or a mix?
-- What external services does this call? What do they return?
-- Are there webhooks, events, or async workflows?
-- What does the error handling strategy look like? (Adjust depth based on PROJECT_TYPE)
-- Are there rate limits, auth tokens, or API keys needed for external integrations?
+- What external services does this consume? What are the contracts, auth mechanisms, and rate limits?
+- How do internal components communicate? (API calls, database queries, file I/O, message queues, shared storage, etc.)
+- What is the user-facing interface? (API endpoints, CLI commands, UI routes, file outputs, chat, etc.)
+- Are there async workflows, background jobs, or event-driven flows?
+- What credentials, tokens, or API keys are needed for external integrations?
+- What does the error handling strategy look like at each boundary? (Adjust depth based on PROJECT_TYPE)
+
+Adapt the depth to the project's shape. A service needs endpoint contracts and request/response schemas. A CLI needs command structure and flag design. A pipeline needs data flow and integration points. Not every project has an API — focus on the boundaries that exist.
 
 ## Phase 6: Infrastructure & Deployment
 
@@ -220,7 +222,7 @@ docs/{type}/
 ├── 02-use-cases.md          # Use cases (GIVEN/WHEN/THEN), cross-cutting requirements, known limitations
 ├── 03-technology.md         # Stack decisions with rationale and risks
 ├── 04-data-model.md         # Entities, relationships, key attributes, seed data needs
-├── 05-api-design.md         # Endpoints, contracts, integrations, external dependencies
+├── 05-interfaces.md         # External integrations, internal boundaries, user-facing interface
 ├── 06-infrastructure.md     # How it runs, deploys, environment setup
 ├── 07-risks.md              # Risk register with impact/likelihood/mitigation
 ├── 08-timeline.md           # Milestones, phases, critical path, what to stub
@@ -251,8 +253,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Data Model
 [Core entities and relationships — enough to generate migrations]
 
-## API Surface
-[Key endpoints/operations with request/response shapes]
+## Interfaces
+[How components communicate — external integrations, internal boundaries, user-facing interface]
 
 ## Build & Run
 [Exact commands to set up, run, and test locally]
