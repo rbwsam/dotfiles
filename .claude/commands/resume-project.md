@@ -59,6 +59,7 @@ After summarizing a completed phase and before starting the next one, perform th
    - Hidden complexity that was accepted without discussion
    - Assumptions that haven't been validated
    - Gaps: important questions that weren't asked or answered
+   - Content that belongs in a later phase (e.g., implementation details in use cases, infrastructure details in technology choices)
    Present any findings to the user and resolve them before continuing.
 
 2. **Optimization check** — Ask whether the decisions in this phase are the simplest path that satisfies the PROJECT_TYPE. Flag anything that is over- or under-engineered relative to the project type.
@@ -77,7 +78,7 @@ Only advance to the next phase when the review surfaces no unresolved issues.
 What problem, for whom, what does success look like, deadline, greenfield vs replacement.
 
 ### Phase 2: Use Cases & Acceptance Criteria
-3-5 core workflows, GIVEN/WHEN/THEN acceptance criteria, explicit out-of-scope list, demo scenarios.
+3-5 core workflows, GIVEN/WHEN/THEN acceptance criteria, explicit out-of-scope list, demo scenarios. Each UC must describe a user performing an action to achieve a goal — behavioral constraints go in Cross-Cutting Requirements. UCs contain only *what* (trigger, action, outcome), never *how* (implementation). Document must include: use cases, cross-cutting requirements, and known limitations.
 
 ### Phase 3: Technology Choices
 Mandated tech, team expertise, capabilities needed, database, UI, external services, auth. Document choice/rationale/risk.

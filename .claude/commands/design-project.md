@@ -41,6 +41,7 @@ After summarizing a completed phase and before starting the next one, perform th
    - Hidden complexity that was accepted without discussion
    - Assumptions that haven't been validated
    - Gaps: important questions that weren't asked or answered
+   - Content that belongs in a later phase (e.g., implementation details in use cases, infrastructure details in technology choices)
    Present any findings to the user and resolve them before continuing.
 
 2. **Optimization check** — Ask whether the decisions in this phase are the simplest path that satisfies the PROJECT_TYPE. Flag anything that is over- or under-engineered relative to the project type.
@@ -75,6 +76,7 @@ Questions to explore:
 - What is explicitly OUT of scope? (This is as important as what's in scope)
 - What are the minimum acceptance criteria for each use case? (Be specific: "user can X" not "system supports X")
 - Are there any demo scenarios or critical paths that must work reliably?
+- Are there known limitations or constraints on what the system can deliver?
 
 For each use case, push for concrete acceptance criteria in the format:
 ```
@@ -82,6 +84,24 @@ GIVEN [precondition]
 WHEN [action]
 THEN [observable result]
 ```
+
+### Use Case Validation Gate
+
+After capturing all use cases, test each one: **"Does this describe a user performing an action to achieve a goal?"** If not, it is not a use case — move it to Cross-Cutting Requirements. Common misclassifications:
+- System behavior constraints (e.g., "don't hallucinate") → Cross-Cutting Requirements
+- Quality attributes (e.g., "responses must be fast") → Cross-Cutting Requirements
+- Implementation details (e.g., "uses LLaVA for captioning") → belongs in Phase 3 (Technology)
+
+### Content Ownership Rule
+
+Use cases describe **what** (user does X, system delivers Y), never **how** (implementation approach, technology choices, architecture). If a use case needs a "Note:" or "Approach:" paragraph to explain how it works, that content belongs in a later phase. Keep each UC to its GIVEN/WHEN/THEN block and nothing more.
+
+### Standard Sections for 02-use-cases.md
+
+The use cases document must include these sections:
+1. **Use Cases** — GIVEN/WHEN/THEN acceptance criteria only
+2. **Cross-Cutting Requirements** — Behavioral constraints that apply across all use cases (e.g., citations, multi-turn conversation, hallucination guardrails)
+3. **Known Limitations** — Constraints on what the system can deliver that qualify the acceptance criteria (e.g., context window limits, accuracy caveats, performance bounds)
 
 ## Phase 3: Technology Choices
 
@@ -197,7 +217,7 @@ Then generate the following documents in the output directory (determined by PRO
 ```
 docs/{type}/
 ├── 01-overview.md           # Vision, problem, success criteria, scope boundaries
-├── 02-use-cases.md          # Use cases with GIVEN/WHEN/THEN acceptance criteria
+├── 02-use-cases.md          # Use cases (GIVEN/WHEN/THEN), cross-cutting requirements, known limitations
 ├── 03-technology.md         # Stack decisions with rationale and risks
 ├── 04-data-model.md         # Entities, relationships, key attributes, seed data needs
 ├── 05-api-design.md         # Endpoints, contracts, integrations, external dependencies
