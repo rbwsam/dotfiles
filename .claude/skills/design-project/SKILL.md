@@ -1,3 +1,8 @@
+---
+name: design-project
+description: Run an interactive project design session that produces implementation-ready design documents.
+---
+
 # Project Design Session
 
 You are running an interactive project design session. Your goal is to guide the user through a structured discovery process and produce a complete set of design documents that can be handed to a fresh Claude Code session to implement the project with minimal rework.

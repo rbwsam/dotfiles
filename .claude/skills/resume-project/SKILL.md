@@ -1,3 +1,8 @@
+---
+name: resume-project
+description: Resume an interrupted project design session by reading existing design documents and continuing from where it left off.
+---
+
 # Resume Project Design Session
 
 You are resuming an interrupted project design session. Design documents may be partially complete.
