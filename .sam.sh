@@ -25,23 +25,17 @@ alias compose='docker-compose'
 alias up='yay -Syu'
 alias bat='bat -p'
 alias wip='git commit -a --allow-empty-message -m "" && git push'
-alias pr='pipenv run'
-alias status='sudo systemctl status'
-alias start='sudo systemctl start'
-alias stop='sudo systemctl stop'
-
-alias bluestatus='systemctl status bluetooth'
-alias blueon='sudo systemctl start bluetooth'
-alias blueoff='sudo systemctl stop bluetooth'
 
 alias backup='brightnessctl s +10%'
 alias backdown='brightnessctl s 10%-'
 alias backmax='brightnessctl s 100%'
 
-export LIBVIRT_DEFAULT_URI="qemu:///system"
 export EDITOR="vim"
 export PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\] \[\e[36m\]\W\[\e[m\]]\\$ "
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
-# direnv
-eval "$(direnv hook bash)"
+# Force virsh and other libvirt clients to connect to the system-wide KVM instance
+export LIBVIRT_DEFAULT_URI="qemu:///system"
+
+# Disable Claude Code auto memory saving
+export CLAUDE_CODE_DISABLE_AUTO_MEMORY=1
