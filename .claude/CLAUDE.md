@@ -34,6 +34,7 @@
   - Production databases: always use versioned migrations (e.g., `drizzle-kit migrate`), never schema push
   - Minimize configuration: no boilerplate, no unnecessary options, no premature optimization
   - Be decisive: apply best practices by default, only ask about actual trade-offs
+  - Prefer pragmatic, industry-standard solutions over theoretically pure ones. Don't add complexity to chase marginal security/correctness gains when the simple approach is widely accepted.
 
   ## Before Implementation
   When a task requires you to decide HOW to accomplish it, present your plan

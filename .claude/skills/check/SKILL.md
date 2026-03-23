@@ -49,6 +49,8 @@ Review the project in light of the changes. Fix anything you're confident is cor
 
 If you're confident, fix it. If you're unsure, report it. Err toward fixing.
 
+Results must be idempotent: re-running /check on unchanged code must produce the same result. Do not lower the bar for suggestions on subsequent runs. If it wouldn't block a code review, it's not a suggestion.
+
 ## Step 5: Run Tests
 
 Run the project's test suite. If no test tooling is apparent, skip to the report.
