@@ -23,8 +23,3 @@ cat ~/.ssh/id_ed25519.pub | pbcopy
 
 Go to GitHub and paste the new key: [https://github.com/settings/keys](https://github.com/settings/keys)
 
-## Configure git email
-
-```
-git config --global --replace-all user.email YOU@YOUREMAIL.COM
-```
