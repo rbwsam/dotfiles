@@ -1,67 +1,74 @@
 ---
 name: check
-description: Review pending code changes, fix issues, run tests, and iterate until the code is clean.
+description: Pre-commit code review. Fixes issues across the project, runs lint/tests, and iterates until clean.
 ---
 
-# Review, Fix, and Test
+# Pre-Commit Code Review
 
-Review pending code changes, fix issues, run tests, and iterate until the code is clean.
+Autonomous code review that fixes problems and iterates until the project is clean. The diff is the starting point, not the boundary — follow ripple effects wherever they lead.
 
-**Options** (passed as `$ARGUMENTS`): `--no-tests` to skip test steps, `--no-lint` to skip lint/format/typecheck.
-
-Parse `$ARGUMENTS` for these flags before starting. Multiple flags can be combined.
-
-## Step 1: Gather Changes
+## Step 1: Understand the Changes
 
 Run `git diff`, `git diff --cached`, and `git status` to see all pending changes.
 
 If there are no changes (clean working tree, nothing staged, no untracked source files), report that and stop.
 
-Read any new untracked files shown by `git status` so you can review their contents.
+Read any new untracked files shown by `git status`.
 
-## Step 2: Lint, Format, and Type-Check
+## Step 2: Understand the Context
+
+Read outward from the changes along the dependency graph: callers, consumers, shared types, related tests, sibling files. Read enough to understand the full impact of the changes — not the entire codebase, but everything the changes touch or could affect.
+
+For small projects (< ~20 source files), just read everything.
+
+## Step 3: Lint, Format, and Type-Check
 
 Check project config files (package.json, pyproject.toml, Makefile, Cargo.toml, etc.) for lint, format, and type-check tooling.
 
 If found, run each with auto-fix where supported. Fix any remaining errors before proceeding. If no such tooling is configured, skip this step.
 
-## Step 3: Code Review
+## Step 4: Review and Fix
 
-Review all pending changes (including new files) for:
+Review the project in light of the changes. Fix anything you're confident is correct — not just in the diff, but anywhere the changes have ripple effects.
 
-- **Bugs**: Logic errors, off-by-one, null/undefined access, race conditions, resource leaks
-- **Security**: Injection, XSS, hardcoded secrets, insecure defaults
-- **Correctness**: Edge cases, boundary conditions, type mismatches, missing error handling
-- **Code quality**: Dead code, unused imports, duplication, needlessly complex logic
+**Fix** when there's one clearly right answer:
 
-Do NOT flag or fix:
-- Cosmetic or subjective style preferences
-- Existing code not modified by these changes
+- Bugs, logic errors, race conditions, resource leaks
+- Security issues: injection, XSS, hardcoded secrets, insecure defaults
+- Missing error handling, edge cases, validation gaps
+- Dead code, unused imports, stale comments
+- Redundant or unnecessarily complex code
+- Inconsistencies introduced or exposed by the changes
+- Callers, consumers, or related code that needs updating
 
-Fix any issues found. Make minimal, targeted changes — do not refactor beyond what is needed to resolve the issue.
+**Report as suggestions** when there's genuine ambiguity:
 
-## Step 4: Run Tests
+- Multiple valid approaches where the right choice depends on intent
+- Architectural changes with real trade-offs
+- Additions that depend on product direction
 
-Detect the test framework from project config. Run the test suite. If the runner supports filtering by file or pattern, scope to tests related to the changed code first, then run the full suite after those pass.
+If you're confident, fix it. If you're unsure, report it. Err toward fixing.
 
-If no test configuration is found, note it and skip to the final report.
+## Step 5: Run Tests
 
-## Step 5: Fix-and-Retest Loop (max 5 attempts)
+Run the project's test suite. If no test tooling is apparent, skip to the report.
+
+## Step 6: Fix-and-Retest Loop (max 5 attempts)
 
 If tests fail:
 
-1. Analyze each failure — if a failing test does not exercise any of the changed code, treat it as pre-existing
-2. Fix only failures caused by the pending changes
+1. Analyze each failure — if it doesn't exercise any changed code (yours or the original changes), treat it as pre-existing
+2. Fix failures caused by the changes
 3. Re-run failing tests
 4. Repeat until passing or 5 attempts exhausted
 
 Do not fix pre-existing test failures.
 
-## Step 6: Report
+## Step 7: Report
 
 **Review complete.**
 
-- **Issues fixed**: list each fix, or "None"
-- **Tests**: pass/fail status, or "No test suite found"
-- **Pre-existing failures**: any failures unrelated to pending changes, or "None"
-- **Suggestions**: improvements noticed but not applied (security, performance, maintainability only)
+- **Fixed**: list each fix (yours and from earlier steps), or "None"
+- **Tests**: pass/fail summary, or "No test suite found"
+- **Pre-existing failures**: any failures unrelated to the changes, or "None"
+- **Suggestions**: only items with genuine ambiguity, or "None"
