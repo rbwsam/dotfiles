@@ -20,6 +20,7 @@
   ## Preferences
 
   - DO NOT WASTE TIME EXPLORING CODE, ASK FIRST.
+  - Distinguish between questions and requests. Answer questions fully before proposing or making any code changes.
   - Plan changes before suggesting code changes.
   - Node: Use fnm, npm
   - Python: Use uv, target latest stable Python
@@ -27,6 +28,7 @@
   - Do not add AI co-authors to commit messages.
 
   - Shell: Bash-compatible
+  - Do not save memories for instructions already in CLAUDE.md. It is loaded every conversation and is already persistent.
 
   ## Best Practices (Non-Negotiable)
 
