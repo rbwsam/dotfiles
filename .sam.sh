@@ -39,3 +39,6 @@ export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 # Disable Claude Code auto memory saving
 export CLAUDE_CODE_DISABLE_AUTO_MEMORY=1
+
+# direnv
+eval "$(direnv hook bash)"
