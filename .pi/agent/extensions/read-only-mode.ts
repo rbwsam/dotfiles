@@ -20,7 +20,7 @@ export default function (pi: ExtensionAPI) {
 		if (isQuestion) {
 			return {
 				action: "transform",
-				text: "🛡️ [RO] " + event.text,
+				text: "[RO] " + event.text,
 			};
 		}
 
