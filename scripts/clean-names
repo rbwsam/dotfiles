@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Script for Renaming Files
+find . -maxdepth 1 -type f -print0 | while IFS= read -r -d $'\0' oldname; do
+
+    # Skip the script itself if it happens to be in the list
+    if [[ "$oldname" == "./$(basename "$0")" ]]; then
+        continue
+    fi
+
+    # 1. Convert to lowercase
+    # Requires Bash 4 or later. If using an older version, 'tr' would be needed.
+    newname="${oldname,,}"
+
+    # 2. Replace all spaces with hyphens
+    # The '*' is a glob pattern, so we must escape the space for the shell
+    # to treat it literally during the substitution.
+    newname="${newname// /-}"
+
+    # 3. Strip the leading './' from 'find' output for the 'mv' command
+    # This also helps avoid issues if 'find' returns only the filename.
+    newname="${newname#./}"
+    oldname_cleaned="${oldname#./}"
+    
+    # Check if the name actually changed before attempting a move
+    if [[ "$oldname_cleaned" != "$newname" ]]; then
+        mv -- "$oldname_cleaned" "$newname"
+    fi
+
+done
+
