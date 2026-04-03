@@ -8,7 +8,7 @@
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
 const QUESTION_PATTERN =
-	/^(what|how|why|where|when|who|can|is|do|does|have|has|would|could|should|will)\b|\?$|\b(explain|describe|review|analyze|understand|find|show|tell|list|summarize)\b/i;
+	/^(what|how|why|where|when|who|can|is|have|has|would|could|should|will)\b|\?$|\b(explain|describe|review|analyze|understand|find|show|tell|list|summarize)\b/i;
 
 export default function (pi: ExtensionAPI) {
 	pi.on("input", async (event, ctx) => {
