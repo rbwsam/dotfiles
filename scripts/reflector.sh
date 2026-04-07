@@ -1,6 +1,6 @@
-sudo reflector \
---save /etc/pacman.d/mirrorlist \
---country "United States" \
---protocol https \
---latest 10 \
---fastest 3
+sudo reflector --protocol https \
+--country US \
+--age 1 \
+--latest 3 \
+--sort rate \
+--save /etc/pacman.d/mirrorlist
