@@ -2,16 +2,13 @@
 
 I hate reconfiguring apps.
 
-## For a new Arch Linux install
-
 ```bash
 # Set up
 sudo pacman -Syu && sudo pacman -S --needed git
 mkdir -p ~/code/rbwsam && cd ~/code/rbwsam
 git clone https://github.com/rbwsam/dotfiles.git && cd dotfiles
 
-# Run scripts
-./arch-desktop.sh
+./arch-i3/setup.sh
 ```
 
 ## Create an SSH key
