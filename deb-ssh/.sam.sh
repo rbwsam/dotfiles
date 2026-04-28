@@ -2,6 +2,9 @@
 # Sam's bash config
 #
 
+# Export ssh auth socket
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 alias ls='lsd'
 alias ll='ls -lA'
 alias ip='ip -color=auto'
