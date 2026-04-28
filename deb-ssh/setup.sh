@@ -12,7 +12,7 @@ mkdir -p ~/bin ~/tmp
 
 # Install packages
 sudo apt-get update -qq
-sudo apt-get install -y --no-install-recommends curl vim git git-delta htop btop jq rsync pigz ncdu lsd bat tree
+sudo apt-get install -y --no-install-recommends curl vim git git-delta htop btop jq rsync pigz ncdu lsd bat tree tmux
 
 # Configure bash
 cp $SCRIPT_DIR/.sam.sh ~/
