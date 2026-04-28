@@ -11,7 +11,7 @@ export DEBIAN_FRONTEND=noninteractive
 mkdir -p ~/bin ~/tmp
 
 # Install packages
-apt-get update -qq
+sudo apt-get update -qq
 sudo apt-get install -y --no-install-recommends curl vim git git-delta htop btop jq rsync uv pigz ncdu lsd bat
 
 # Configure bash
