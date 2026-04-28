@@ -34,7 +34,6 @@ cp -r $SCRIPT_DIR/.ssh ~/
 cp -r $SCRIPT_DIR/.xinitrc ~/
 cp -r $SCRIPT_DIR/.Xresources ~/
 cp -r $SCRIPT_DIR/.config ~/
-cp -r $SCRIPT_DIR/.claude ~/
 
 # Install yay
 mkdir ~/tmp/yay

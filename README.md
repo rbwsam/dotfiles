@@ -1,9 +1,12 @@
 # dotfiles
 
-I hate reconfiguring apps.
+I hate repeating myself, so my config lives here.
+
+## Platforms
+
+### Arch i3 (Desktop/Laptop)
 
 ```bash
-# Set up
 sudo pacman -Syu && sudo pacman -S --needed git
 mkdir -p ~/code/rbwsam && cd ~/code/rbwsam
 git clone https://github.com/rbwsam/dotfiles.git && cd dotfiles
@@ -11,12 +14,28 @@ git clone https://github.com/rbwsam/dotfiles.git && cd dotfiles
 ./arch-i3/setup.sh
 ```
 
-## Create an SSH key
+### Debian SSH (Server)
 
+```bash
+sudo apt update && sudo apt install git
+mkdir -p ~/code/rbwsam && cd ~/code/rbwsam
+git clone https://github.com/rbwsam/dotfiles.git && cd dotfiles
+
+./deb-ssh/setup.sh
 ```
+
+## Guides
+
+### Create an SSH key
+
+```bash
 ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
+```
+
+```bash
+# If you have the pbcopy alias
+
 cat ~/.ssh/id_ed25519.pub | pbcopy
 ```
 
-Go to GitHub and paste the new key: [https://github.com/settings/keys](https://github.com/settings/keys)
-
+Add public key to GitHub: [https://github.com/settings/keys](https://github.com/settings/keys)
