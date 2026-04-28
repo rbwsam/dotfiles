@@ -16,3 +16,6 @@ alias wip='git commit -a --allow-empty-message -m "" && git push'
 export EDITOR="vim"
 export PS1="[\[\e[36m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]]\\$ "
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+# Force virsh and other libvirt clients to connect to the system-wide KVM instance
+export LIBVIRT_DEFAULT_URI='qemu:///system'

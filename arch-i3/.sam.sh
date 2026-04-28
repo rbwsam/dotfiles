@@ -37,8 +37,5 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 # Force virsh and other libvirt clients to connect to the system-wide KVM instance
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 
-# Disable Claude Code auto memory saving
-export CLAUDE_CODE_DISABLE_AUTO_MEMORY=1
-
 # direnv
 eval "$(direnv hook bash)"
