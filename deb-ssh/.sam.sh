@@ -11,5 +11,5 @@ alias bat='bat -p'
 alias wip='git commit -a --allow-empty-message -m "" && git push'
 
 export EDITOR="vim"
-export PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\] \[\e[36m\]\W\[\e[m\]]\\$ "
+export PS1="[\[\e[36m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \[\e[33m\]\W\[\e[m\]]\\$ "
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
