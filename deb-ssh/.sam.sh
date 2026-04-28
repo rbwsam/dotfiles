@@ -3,7 +3,7 @@
 #
 
 # Export ssh auth socket
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/openssh_agent"
 
 alias ls='lsd'
 alias ll='ls -lA'
