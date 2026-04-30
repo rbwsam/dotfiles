@@ -25,6 +25,9 @@ echo -e "\nsource ~/.sam.sh" >> ~/.bashrc
 cp $SCRIPT_DIR/.gitignoreglobal ~/
 cp $SCRIPT_DIR/.gitconfig ~/
 
+# Configure tmux
+cp $SCRIPT_DIR/.tmux ~/
+
 # Configure everything else
 cp -r $SCRIPT_DIR/.ssh ~/
 cp -r $SCRIPT_DIR/.config ~/
