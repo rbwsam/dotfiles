@@ -28,7 +28,10 @@ cp $SCRIPT_DIR/.gitconfig ~/
 # Configure tmux
 cp $SCRIPT_DIR/.tmux ~/
 
+# Configure claude
+mkdir -p ~/.claude
+ln -sf $SCRIPT_DIR/CLAUDE.md ~/.claude/CLAUDE.md
+
 # Configure everything else
 cp -r $SCRIPT_DIR/.ssh ~/
 cp -r $SCRIPT_DIR/.config ~/
-
