@@ -18,20 +18,22 @@ sudo apt-get install -y --no-install-recommends curl vim git git-delta htop btop
 systemctl --user enable --now ssh-agent.socket
 
 # Configure bash
-cp $SCRIPT_DIR/.sam.sh ~/
-echo -e "\nsource ~/.sam.sh" >> ~/.bashrc
+cp "$SCRIPT_DIR"/.sam.sh ~/
+grep -qxF 'source ~/.sam.sh' ~/.bashrc || echo -e '\nsource ~/.sam.sh' >> ~/.bashrc
 
 # Configure git
-cp $SCRIPT_DIR/.gitignoreglobal ~/
-cp $SCRIPT_DIR/.gitconfig ~/
+cp "$SCRIPT_DIR"/.gitignoreglobal ~/
+cp "$SCRIPT_DIR"/.gitconfig ~/
 
 # Configure tmux
-cp $SCRIPT_DIR/.tmux ~/
+cp "$SCRIPT_DIR"/.tmux.conf ~/
 
 # Configure claude
 mkdir -p ~/.claude
-ln -sf $SCRIPT_DIR/CLAUDE.md ~/.claude/CLAUDE.md
+ln -sf "$SCRIPT_DIR"/CLAUDE.md ~/.claude/CLAUDE.md
+
+# Configure ssh
+install -m 600 "$SCRIPT_DIR"/.ssh/config ~/.ssh/config
 
 # Configure everything else
-cp -r $SCRIPT_DIR/.ssh ~/
-cp -r $SCRIPT_DIR/.config ~/
+cp -r "$SCRIPT_DIR"/.config ~/
