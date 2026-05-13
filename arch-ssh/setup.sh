@@ -10,7 +10,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 mkdir -p ~/bin ~/tmp ~/Downloads
 
 # Install packages
-sudo pacman -Sy --needed htop iotop sysstat vim curl git git-delta bat jq go fwupd udisks2 acpi bash-completion man unzip openssh pigz rsync uv lsd calc httpie ripgrep dosfstools exfatprogs bind ncdu csvlens base-devel direnv tree
+sudo pacman -Sy --needed htop iotop sysstat vim curl git git-delta bat jq go fwupd udisks2 acpi bash-completion man unzip openssh pigz rsync uv lsd calc httpie ripgrep dosfstools exfatprogs bind ncdu csvlens base-devel direnv tree tmux
 
 # Enable ssh agent
 systemctl --user enable --now ssh-agent
