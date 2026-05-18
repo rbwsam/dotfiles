@@ -12,10 +12,13 @@ mkdir -p ~/bin ~/tmp
 
 # Install packages
 sudo apt-get update -qq
-sudo apt-get install -y --no-install-recommends curl vim git git-delta htop btop jq rsync pigz ncdu lsd bat tree tmux ripgrep glow
+sudo apt-get install -y --no-install-recommends curl vim git git-delta htop btop jq rsync pigz ncdu lsd bat tree tmux ripgrep glow keychain
 
 # Enable ssh agent
 systemctl --user enable --now ssh-agent.socket
+
+# Keep the user-level systemd manager (and its ssh-agent) alive across logout
+sudo loginctl enable-linger "$USER"
 
 # Configure bash
 cp "$SCRIPT_DIR"/.sam.sh ~/

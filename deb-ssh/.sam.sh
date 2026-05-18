@@ -5,6 +5,11 @@
 # Export ssh auth socket
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/openssh_agent"
 
+# Load ssh key into the agent (prompts once per boot, reused thereafter)
+if command -v keychain >/dev/null 2>&1 && [ -f ~/.ssh/id_ed25519 ]; then
+    eval "$(keychain --eval --quiet --agents ssh --inherit any id_ed25519)"
+fi
+
 alias ls='lsd'
 alias ll='ls -lA'
 alias ip='ip -color=auto'
