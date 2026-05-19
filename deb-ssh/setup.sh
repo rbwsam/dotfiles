@@ -36,6 +36,7 @@ mkdir -p ~/.claude
 ln -sf "$SCRIPT_DIR"/CLAUDE.md ~/.claude/CLAUDE.md
 
 # Configure ssh
+mkdir -p ~/.ssh
 install -m 600 "$SCRIPT_DIR"/.ssh/config ~/.ssh/config
 
 # Configure everything else
