@@ -25,6 +25,7 @@ alias compose='docker-compose'
 alias up='yay -Syu'
 alias bat='bat -p'
 alias wip='git commit -a --allow-empty-message -m "" && git push'
+alias pasteclip='sleep 2 && xsel -b | xargs -0 -d "\n" xdotool type --delay 100 --file -'
 
 alias backup='brightnessctl s +10%'
 alias backdown='brightnessctl s 10%-'
