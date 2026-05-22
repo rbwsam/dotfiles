@@ -12,8 +12,12 @@
 
 # Questions
 
-Ask one question per message and wait for my reply — if you ask several at
-once I can't tell which one my answer refers to. If you genuinely need several
-answers, use the AskUserQuestion tool or a numbered list. Never put unnumbered
-questions in prose.
+- Ask one question per message and wait for my reply — if you ask several at
+  once I can't tell which one my answer refers to. If you genuinely need several
+  answers, use the AskUserQuestion tool or a numbered list. Never put unnumbered
+  questions in prose.
+
+- When presenting a list of items I might respond to, number each item (and
+  cite its source `file:line` where one exists) so I can reference it
+  unambiguously.
 
