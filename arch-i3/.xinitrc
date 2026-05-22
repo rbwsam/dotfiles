@@ -36,6 +36,12 @@ fi
 
 export GTK_THEME="Adwaita:dark"
 
+# Start gnome-keyring for the Secret Service API (org.freedesktop.secrets).
+# SSH keys stay with openssh's ssh-agent, so the ssh component is excluded.
+# The keyring starts locked and prompts (via gcr) on first access.
+eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)"
+export GNOME_KEYRING_CONTROL
+
 #
 # Example setting higher refresh rate (specific to output port and monitor):
 #
