@@ -23,7 +23,7 @@ systemctl --user enable --now ssh-agent
 
 # Configure bash
 cp $SCRIPT_DIR/.sam.sh ~/
-echo -e "\nsource ~/.sam.sh" >> ~/.bashrc
+grep -qxF "source ~/.sam.sh" ~/.bashrc || echo -e "\nsource ~/.sam.sh" >> ~/.bashrc
 
 # Configure git
 cp $SCRIPT_DIR/.gitignoreglobal ~/
@@ -37,13 +37,15 @@ cp -r $SCRIPT_DIR/.config ~/
 cp -r $SCRIPT_DIR/.claude ~/
 
 # Install yay
-mkdir ~/tmp/yay
-pushd ~/tmp/yay
-curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz
-tar -xf yay.tar.gz
-cd yay
-makepkg -si --needed
-popd
-yay --version
-rm -rf ~/tmp/yay
+if ! command -v yay &> /dev/null; then
+  mkdir -p ~/tmp/yay
+  pushd ~/tmp/yay
+  curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz
+  tar -xf yay.tar.gz
+  cd yay
+  makepkg -si --needed
+  popd
+  yay --version
+  rm -rf ~/tmp/yay
+fi
 
