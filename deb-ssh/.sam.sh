@@ -13,7 +13,7 @@ fi
 alias ls='lsd'
 alias ll='ls -lA'
 alias ip='ip -color=auto'
-alias compose='docker-compose'
+alias compose='docker compose'
 alias up='sudo apt update && sudo apt upgrade'
 alias bat='batcat -p'
 alias wip='git commit -a --allow-empty-message -m "" && git push'
