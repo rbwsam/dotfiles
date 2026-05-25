@@ -24,3 +24,6 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # Force virsh and other libvirt clients to connect to the system-wide KVM instance
 export LIBVIRT_DEFAULT_URI='qemu:///system'
+
+# Hook direnv
+eval "$(direnv hook bash)"
