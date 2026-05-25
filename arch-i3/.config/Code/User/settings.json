@@ -5,4 +5,10 @@
     "files.enableTrash": false,
     "editor.fontSize": 12,
     "editor.fontFamily": "'Noto Sans Mono', 'Droid Sans Mono', monospace",
+    "extensions.ignoreRecommendations": true,
+    "chat.titleBar.signIn.enabled": false,
+    "workbench.browser.showInTitleBar": false,
+    "go.enableCodeLens": {
+        "runtest": false
+    }
 }
