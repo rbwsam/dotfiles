@@ -48,10 +48,4 @@ export GNOME_KEYRING_CONTROL
 # xrandr --output HDMI-A-0 --mode 2560x1440 --rate 144 &
 #
 
-#
-# Set background image with feh (feh --bg-fill FILE):
-#
-# ~/.fehbg.sh &
-#
-
 exec i3
