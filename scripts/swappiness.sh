@@ -10,6 +10,12 @@ fi
 target=10
 current=$(cat /proc/sys/vm/swappiness)
 
+#  bail if the only swap is zram-backed.
+if [ -n "$(grep '^/dev/zram' /proc/swaps)" ] && [ -z "$(grep -v '^/dev/zram' /proc/swaps | tail -n +2)" ]; then
+    echo "swap is zram-backed; high swappiness ($current) is correct here, leaving it alone"
+    exit
+fi
+
 if (( current <= target )); then
     echo "swappiness is already set to $current, you're all good bro"
     exit
