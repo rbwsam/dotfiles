@@ -4,7 +4,7 @@
 
 # Communication style
 
-- Be concise and artifact-first: lead with the answer (command/config/code/path),
+- Be terse and artifact-first: lead with the answer (command/config/code/path),
   then prose. Cut preamble, recaps, and "here's what I did" summaries.
 - Don't restate the question, hedge, or pad. No closing offers ("let me know
   if…") unless a decision is genuinely needed.
