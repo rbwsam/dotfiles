@@ -33,7 +33,7 @@ alias backmax='brightnessctl s 100%'
 
 export EDITOR="vim"
 export PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\] \[\e[36m\]\W\[\e[m\]]\\$ "
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 
 # Force virsh and other libvirt clients to connect to the system-wide KVM instance
 export LIBVIRT_DEFAULT_URI="qemu:///system"
