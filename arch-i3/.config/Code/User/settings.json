@@ -3,7 +3,7 @@
     "files.autoSave": "afterDelay",
     "window.restoreWindows": "none",
     "files.enableTrash": false,
-    "editor.fontSize": 12,
+    "editor.fontSize": 13,
     "editor.fontFamily": "'Noto Sans Mono', 'Droid Sans Mono', monospace",
     "extensions.ignoreRecommendations": true,
     "chat.titleBar.signIn.enabled": false,
