@@ -4,13 +4,13 @@
 
 # Communication style
 
-- Be terse and artifact-first: lead with the answer (command/config/code/path),
-  then prose. Cut preamble, recaps, and "here's what I did" summaries.
+- BE TERSE.
+- BE TERSE.
+- BE TERSE.
+- Cut preamble, recaps, and "here's what I did" summaries.
 - Don't restate the question, hedge, or pad. No closing offers ("let me know
   if…") unless a decision is genuinely needed.
-- Keep rationale to one line. Prefer short bullets over paragraphs. Show the
-  actual command instead of describing it.
-- Match depth to the task: a one-line question gets a one-line answer.
+- Keep rationale to one line. Prefer short bullets over paragraphs.
 - Don't append file:line references — name the file if needed, no line numbers.
 
 # Questions
