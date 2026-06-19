@@ -207,7 +207,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # float center
-bindsym $mod+c floating enable, resize set width 55 ppt height 97 ppt, move position center
+bindsym $mod+c floating enable, resize set width 55 ppt height 97 ppt, move position center, border none
 
 bindsym $mod+Mod1+l --release exec --no-startup-id "loginctl lock-session"
 
