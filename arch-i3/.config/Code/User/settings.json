@@ -5,10 +5,13 @@
     "files.enableTrash": false,
     "editor.fontSize": 13,
     "editor.fontFamily": "'Noto Sans Mono', 'Droid Sans Mono', monospace",
-    "extensions.ignoreRecommendations": true,
-    "chat.titleBar.signIn.enabled": false,
     "workbench.browser.showInTitleBar": false,
+    "chat.titleBar.signIn.enabled": false,
     "go.enableCodeLens": {
         "runtest": false
-    }
+    },
+    "extensions.ignoreRecommendations": true,
+    "go.survey.prompt": false,
+    "go.showWelcome": false,
+    "files.trimTrailingWhitespace": true,
 }
