@@ -21,7 +21,6 @@ font pango:DejaVu Sans Mono 10
 
 default_border pixel 1
 smart_borders on
-smart_gaps on
 
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #555555
 client.unfocused        #333333 #222222 #888888 #292d2e   #000000
@@ -206,8 +205,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# float center
-bindsym $mod+c floating enable, resize set width 55 ppt height 97 ppt, move position center, border none
+# center via gaps
+bindsym $mod+c gaps horizontal current toggle 600 
 
 bindsym $mod+Mod1+l --release exec --no-startup-id "loginctl lock-session"
 
