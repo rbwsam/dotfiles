@@ -2,6 +2,7 @@
   "promptSuggestionEnabled": false,
   "awaySummaryEnabled": false,
   "theme": "dark",
+  "outputStyle": "Terse",
   "hooks": {
     "WorktreeCreate": [
       {
