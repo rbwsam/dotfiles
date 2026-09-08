@@ -2,6 +2,8 @@
   "promptSuggestionEnabled": false,
   "awaySummaryEnabled": false,
   "theme": "dark",
+  "outputStyle": "Concise",
+  "spinnerTipsEnabled": false,
   "hooks": {
     "WorktreeCreate": [
       {
