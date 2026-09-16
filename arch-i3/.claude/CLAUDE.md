@@ -1,6 +1,16 @@
 # Git
 - Never add AI/agent attribution to commits, PRs, or code comments.
 
+# Secrets
+
+Never send the contents of a secret-bearing file to output. Not `cat`, not
+`grep`, not a redacting `sed` — a redaction pattern is a guess about the file's
+shape and passes through every line it fails to match.
+
+- Key names only: `cut -d= -f1 .env`.
+- To check a value, inspect it inside the process and print the derived boolean
+  or number, never the value.
+
 # Code
 Write what a fluent user of the language and framework would write.
 
