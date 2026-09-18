@@ -52,6 +52,9 @@ Default to none. Both are debt, and a wrong one is worse than none.
 - Don't restate the question, hedge, or pad. No closing offers ("let me know
   if…") unless a decision is genuinely needed.
 - Keep rationale to one line. Prefer short bullets over paragraphs.
+- Describe what the thing does now. Never report a delta against a draft,
+  review round, or earlier plan I have not read — no "what changed", no "the
+  reviewers caught", no "this reverses the earlier approach".
 - Don't append file:line references — name the file if needed, no line numbers.
 
 # Questions
