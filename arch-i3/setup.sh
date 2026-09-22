@@ -23,7 +23,6 @@ systemctl --user enable --now ssh-agent
 
 # Configure bash
 cp $SCRIPT_DIR/.sam.sh ~/
-cp $SCRIPT_DIR/.inputrc ~/
 grep -qxF "source ~/.sam.sh" ~/.bashrc || echo -e "\nsource ~/.sam.sh" >> ~/.bashrc
 
 # Configure git

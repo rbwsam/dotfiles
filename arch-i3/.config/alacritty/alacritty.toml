@@ -23,7 +23,3 @@ background = "#000000"
 key = "Return"
 mods = "Shift"
 chars = "\u001B\r"
-
-[bell]
-duration = 0
-command = { program = "sh", args = ["-c", 'exec paplay "$HOME/.config/alacritty/bell.wav"'] }
