@@ -1,6 +1,6 @@
 ---
 name: ebay-listing
-description: Generate plain-text eBay listing data (title + description) for a product from
+description: Generate eBay listing data (plain-text title + HTML description) for a product from
   its brand and model. Specs are verified against manufacturer sources; anything unverified
   is omitted rather than guessed, and optionally collects the manufacturer's marketing photos.
   Use when asked to write, draft, or generate an eBay
@@ -10,12 +10,14 @@ argument-hint: "<brand> <model> [other identifiers]"
 
 # eBay listing
 
-Output is plain text only. No markdown, no HTML, no emoji. A buyer pastes it straight into
-eBay's title and description fields.
+The title is plain text. The description is HTML for the HTML tab of eBay's description
+editor — pasting rich text from a terminal arrives unformatted, and HTML survives any line
+wrapping on the way. No markdown, no emoji, no CSS, no tags beyond `<p>`, `<b>`, `<br>`.
 
 Scope is the product, not the individual item: title, blurb, specifications. Condition,
-defects, test status, box contents, and history are the user's to write. Do not ask for them
-and do not put them in the listing.
+defects, test status, box contents, and history are the user's to give. Never ask for them,
+prompt for them, or mention their absence. When the user supplies them, use their words and
+nothing more — no embellishing "tested" into "fully tested", no inferring wear from photos.
 
 The listing is a statement of fact about an item someone will pay for. A wrong spec is a
 return, a defect case, or a false-advertising claim. Omitting a spec costs nothing.
@@ -74,7 +76,8 @@ own photos, they do not replace them. State it and move on; it is their listing.
 Max 80 characters, hard limit. Count it and print the count.
 
 Order: Brand, Model / part number, defining specs the buyer searches on. Front-load the terms
-a search would use. Leave room at the end for the user to add a condition keyword.
+a search would use. Condition stays out of the title — eBay shows it as its own field. The
+one exception: end with "Tested" when the user says the item was tested.
 
 - Title Case or sentence case. Never ALL CAPS.
 - No filler: L@@K, WOW, RARE, FAST SHIP, punctuation runs, star or arrow characters.
@@ -83,7 +86,7 @@ a search would use. Leave room at the end for the user to add a condition keywor
 
 ## 5. Write the description
 
-Plain text, two parts, in this order.
+In this order: blurb, condition (only if the user gave it), specifications.
 
 **Blurb** — two to four sentences that sell the thing. Lead with what it does for the buyer
 and what it is good at; name a spec only where it is the reason a claim is true. The
@@ -96,16 +99,27 @@ sells; "8-core CPU, 32GB RAM, 1TB SSD" does not — that is the section below.
 The constraint is truth, not dryness: every claim must be traceable to a verified spec, and a
 spec you dropped as unverified cannot be smuggled back in as an adjective. Enthusiasm is fine;
 unsupported claims are not. Say nothing about the state of this particular unit — not its age,
-wear, or how much use it has had.
+wear, or how much use it has had — that belongs in the condition section.
 
-**Specifications** — one `Label: Value` per line, no bullets or symbols. Group logically. Use
+**Condition** — only when the user supplied condition, test status, defects, contents, or
+history. A `Condition` heading followed by their facts as sentences or `Label: Value` lines.
+Omit the section entirely otherwise.
+
+**Specifications** — one `Label: Value` per line, label in bold, no bullets or symbols. Group logically. Use
 the manufacturer's own wording and units. Include the exact model / part number.
+
+RAM: list only brand, series, part number, capacity and module configuration, memory type,
+speed (MHz and PC rating), XMP/EXPO profile, form factor (UDIMM/SODIMM/RDIMM, ECC), pin count,
+and colour where it varies. No timings, voltages, SPD values, label revisions, or compatibility
+lists. PC rating and pin count may come from the JEDEC standard for the verified type, speed,
+and form factor (DDR4-2666 is PC4-21300; DDR4 UDIMM/RDIMM is 288-pin, SODIMM 260-pin) when no
+manufacturer source states them; cite JEDEC as the source.
 
 Do not invent a returns, warranty, shipping, or payment policy. Those are account settings and
 a fabricated one is a binding term.
 
-End the description after the specifications. Leave no "Condition" or "Included" heading behind
-for the user to fill in — an empty heading in a pasted listing reads as an omission.
+End the description after the specifications. Never leave an empty "Condition" or "Included"
+heading for the user to fill in — an empty heading in a pasted listing reads as an omission.
 
 ## 6. Review before delivering
 
@@ -118,29 +132,30 @@ nothing about the pass itself.
 - Point every blurb sentence at the spec line that makes it true. No spec line, cut the
   sentence.
 - Check the model / part number is identical in the title, the spec line, and every source URL.
-- Check the block for markdown, HTML, emoji, and trailing empty headings.
+- Check for markdown, emoji, tags outside `<p>` `<b>` `<br>`, and trailing empty headings.
 
 ## 7. Deliver
 
-Print the listing in a code block so it copies cleanly, in this shape:
+Print in chat, never in a code block: the terminal indents and pads code blocks, which corrupts
+a paste. Shape:
 
-```
-TITLE (78/80 chars)
-<title>
+Title (76/80)
 
-DESCRIPTION
-<blurb>
+<title as a plain line>
 
-Specifications
-Brand: ...
-Model: ...
-```
+Description (paste into eBay's HTML tab)
 
-After the block, list separately:
+<description as one line of HTML>
+
+The description is a single line so markdown rendering cannot reflow it:
+`<p>blurb</p><p><b>Condition</b><br>Used. Tested.</p><p><b>Specifications</b><br><b>Brand:</b>
+Corsair<br><b>Model:</b> ...</p>`. Escape `&`, `<`, `>` in text as entities.
+
+After the listing, list separately:
 
 - Sources used, one URL per spec group
 - Photos saved, if any: file path and source URL for each
 - Specs omitted as unverified
-- Anything you still need from the user
+- Anything you still need from the user to pin down the product (never condition)
 
 Never fill a gap with a plausible value to make the listing look complete.
