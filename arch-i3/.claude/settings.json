@@ -2,7 +2,7 @@
   "promptSuggestionEnabled": false,
   "awaySummaryEnabled": false,
   "theme": "dark",
-  "outputStyle": "Concise",
+  "outputStyle": "Terse",
   "spinnerTipsEnabled": false,
   "hooks": {
     "WorktreeCreate": [
@@ -11,6 +11,16 @@
           {
             "type": "command",
             "command": "$HOME/.claude/hooks/worktree-create.sh"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/terse-reminder.sh"
           }
         ]
       }

@@ -44,24 +44,3 @@ Default to none. Both are debt, and a wrong one is worse than none.
   yet. No preambles, no summaries, no quality adjectives, no restating the section
   you just wrote.
 - Do not write a doc or a README that was not asked for.
-
-# Communication style
-
-- Be terse.
-- Cut preamble, recaps, and "here's what I did" summaries.
-- Don't restate the question, hedge, or pad. No closing offers ("let me know
-  if…") unless a decision is genuinely needed.
-- Keep rationale to one line. Prefer short bullets over paragraphs.
-- Describe what the thing does now. Never report a delta against a draft,
-  review round, or earlier plan I have not read — no "what changed", no "the
-  reviewers caught", no "this reverses the earlier approach".
-- Don't append file:line references — name the file if needed, no line numbers.
-
-# Questions
-
-- Ask one question per message and wait for my reply. If you genuinely need
-  several answers, use the AskUserQuestion tool or a numbered list — never
-  unnumbered questions in prose.
-- When presenting a list of items I might respond to, number each so I can
-  reference it unambiguously. Cite source file:line only when I ask for it.
-
