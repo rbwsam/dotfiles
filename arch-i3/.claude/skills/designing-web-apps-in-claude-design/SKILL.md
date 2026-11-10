@@ -23,8 +23,10 @@ Needs `uv`. Once per machine, install the browser from the same environment that
 
 ## Drawing
 
+- Build each screen from the components on the canvas's Components page. Before drawing, list each job the screen does and the component that does it. A job with no component gets a new one, designed on the screen that needs it but shaped for the job, so other screens can use it. The review request names it as new; once approved its frame moves to the Components page. Never reuse a component that means something else.
+- Place components with `dc-import` rather than copying their markup. A component file is also its own frame, so its root sets its own font-family and colour.
 - Build with the mechanism the app will ship: a real `<table>`, wrap or nowrap per cell, min and max widths. A flex row of guessed pixel widths standing in for a table hides squeeze bugs; replacing one is part of the next change to that board, and the reply says so.
-- While the user iterates, change one board. Once its structure is approved, every state drawn on desktop gets its phone twin with the same fields and copy (hover and drag states excepted), then other variants and component boards follow.
+- While the user iterates, change one board. Once its structure is approved, every state drawn on desktop gets its phone twin with the same fields and copy (hover and drag states excepted), then other variants and component frames follow.
 - A list's first version carries its states: none ever, none now, none after a filter, loading, one page, more than a page, each request failing.
 - Edge boards: longest values, the maximum count, everything failing, each size at the narrowest width the project supports (step 4's command with `--width N` before the board names).
 - Every control that fetches gets, before it is drawn: its request, the most rows it can return, their order, how it knows it reached the end, its failure, what the URL keeps.
@@ -33,7 +35,7 @@ Needs `uv`. Once per machine, install the browser from the same environment that
 
 ## Asking for approval
 
-**REQUIRED SUB-SKILL:** reviewing-screens, before asking and before proposing a feature, filter, column or control. Draw the issue before asking about it. Ask with a numbered list of board titles, removals first, short. Component boards publish after rendering, without approval.
+**REQUIRED SUB-SKILL:** reviewing-screens, before asking and before proposing a feature, filter, column or control. Draw the issue before asking about it. Ask with a numbered list of board titles, removals first, short. Component frames publish after rendering, without approval.
 
 ## Publishing
 
@@ -47,4 +49,6 @@ Needs `uv`. Once per machine, install the browser from the same environment that
 |---|---|---|
 | Table column widths ignored | The runtime drops `<colgroup>` | `table-layout: fixed` with widths on the header cells |
 | `--width` below the phone frame scrolls sideways | The board's root is fixed at the frame width | Make the root `width: 100%`; the frame keeps its width |
+| An imported component inside a sentence drops onto its own line | Imports always render as blocks | Give it its own slot in the row, or copy its markup there |
+| An import shows the wrong component or nothing | A value named `name` picks the component | Call the value something else, like `label` |
 | `shot.py` can't find the runtime | `ROOT/runtime/dc-runtime.js` missing | Read `artifact-type/dc-runtime.js` from the canvas and save it there |
