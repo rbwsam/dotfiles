@@ -51,8 +51,14 @@ apply only when building.
 
 ### Sizes
 
-Small is under 768 CSS px.
+| Size   | Width       | Content                            |
+|--------|-------------|------------------------------------|
+| Small  | 320–767     | one column, tables as stacked rows |
+| Medium | 768–1023    | columns and tables                 |
+| Large  | 1024 and up | columns and tables                 |
 
+- Every screen is checked at the narrowest width of each size (320, 768 and
+  1024), since a layout breaks at its narrowest.
 - Every screen works at every width from 320 CSS px with no horizontal scroll
   (WCAG 2.2 SC 1.4.10), tables and charts included.
 - On small, every control's tap area is at least 44 × 44 px, padded where the
