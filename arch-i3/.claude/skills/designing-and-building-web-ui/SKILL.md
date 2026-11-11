@@ -42,6 +42,10 @@ apply only when building.
 - A choice more than one screen faces gets one app-wide rule and one shared
   component that every screen uses. A screen never has its own colour, button
   or spacing.
+- Defined once means one source used by reference: a pattern drawn twice is a
+  component every screen imports, and colours, type, spacing and radii are
+  named tokens, never typed values. A copy is not once, even one a script
+  regenerates.
 - An enabled control is never filled with a neutral grey: grey reads as
   disabled.
 
