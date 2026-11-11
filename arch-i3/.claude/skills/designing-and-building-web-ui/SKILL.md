@@ -86,8 +86,6 @@ apply only when building.
 - A value that does not apply, where nothing in its row says why, is `N/A` in
   the tag style, read as "Not applicable". Where the row says why, the cell
   stays blank. An empty cell reads as missing data.
-- A past expiry shows an Expired pill in place of its date: the date answers
-  nothing anyone acts on.
 
 ### Text
 
