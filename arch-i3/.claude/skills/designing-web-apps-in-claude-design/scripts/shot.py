@@ -21,6 +21,8 @@ def main(argv):
     site.mkdir(parents=True, exist_ok=True)
     for f in project.glob("*.dc.html"):
         shutil.copy(f, site / f.name)
+    if (project / "ds").is_dir():
+        shutil.copytree(project / "ds", site / "ds", dirs_exist_ok=True)
     shutil.copy(root / "runtime" / "dc-runtime.js", site / "support.js")
     boards = json.loads((project / "canvas.json").read_text())["boards"]
 
